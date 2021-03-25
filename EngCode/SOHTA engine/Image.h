@@ -10,7 +10,7 @@ public:
 
 public:
 	void Load();
-
+	
 private:
 	ID2D1Bitmap* bmp;
 	IWICImagingFactory* wicfactory;
