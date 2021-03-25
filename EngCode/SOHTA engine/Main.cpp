@@ -25,6 +25,8 @@ int WINAPI WinMain(
 	app.RunApp();
 	app.EndApp();
 	
+	cout << " fodase";
+
 	FreeConsole();
 	return 10;
 }
