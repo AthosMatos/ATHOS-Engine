@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="App">
+      <UniqueIdentifier>{1cda8ea6-7f6b-461f-8e73-63884a6d3c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Window">
+      <UniqueIdentifier>{a6f0efc7-52c8-4b17-a091-2462bd9bbe71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics">
+      <UniqueIdentifier>{54542e79-cb16-4764-a2a8-8cb0407e6411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D">
+      <UniqueIdentifier>{8558b8a2-0115-4286-bfa1-3e970f705858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D">
+      <UniqueIdentifier>{1f86ed8b-a73a-4b63-9098-a6d6e8e80c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\Text">
+      <UniqueIdentifier>{31f179f0-1729-4d76-997e-4bb68ddaa3cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Timer">
+      <UniqueIdentifier>{d03b2809-fda3-4d09-bcd2-1f4ed46e843c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Input">
+      <UniqueIdentifier>{bbcb9930-e0ed-4079-886f-5bc11093a717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\Scenes">
+      <UniqueIdentifier>{59d4ba7e-b837-478e-ab2e-e2e7de505c4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry">
+      <UniqueIdentifier>{bef1d493-21f9-49aa-b026-c337ea073fbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Cubes">
+      <UniqueIdentifier>{18ab1d97-e005-43d0-b61a-08f48698291c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Ground">
+      <UniqueIdentifier>{efad547e-de00-476a-9368-2def3318f523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Sky">
+      <UniqueIdentifier>{63aa0523-8306-4ac0-976b-31158a7f34c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Light">
+      <UniqueIdentifier>{5069336b-7c9c-4212-bade-147e2e18b796}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Light\PointLights">
+      <UniqueIdentifier>{469b419f-274f-41d4-88eb-ce264f5e70c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Shaders">
+      <UniqueIdentifier>{3368fb81-bdfc-42bf-9016-ae856ce27f05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Shaders\FX">
+      <UniqueIdentifier>{b40e67df-ab86-4afb-bcd5-24de65c81e7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Shaders\Strct">
+      <UniqueIdentifier>{24573b6c-5301-4a78-9205-08ef9e5281d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Light\PointLights\LightCubes">
+      <UniqueIdentifier>{908914c4-a7ae-4018-9f50-1d2874d1257e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\Camera">
+      <UniqueIdentifier>{68eb8fd8-6991-438c-8ef9-d61a2f8f54f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\VideoConfig">
+      <UniqueIdentifier>{ed4712ef-25ec-4f84-8fe4-94b943c42ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\Image">
+      <UniqueIdentifier>{94c94706-2dc3-44a5-a7d4-7ee5467f7f35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="win.cpp">
+      <Filter>App\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="App.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D.cpp">
+      <Filter>App\Graphics\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>App\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D2D.cpp">
+      <Filter>App\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>App\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Cubes.cpp">
+      <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectInput.cpp">
+      <Filter>App\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="StdScene.cpp">
+      <Filter>App\Graphics\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry.cpp">
+      <Filter>App\Graphics\3D\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Sky.cpp">
+      <Filter>App\Graphics\3D\Geometry\Sky</Filter>
+    </ClCompile>
+    <ClCompile Include="Shaders.cpp">
+      <Filter>App\Graphics\3D\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Shaders.cpp">
+      <Filter>App\Graphics\3D\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>App\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Camera.cpp">
+      <Filter>App\Graphics\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoConfig.cpp">
+      <Filter>App\VideoConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_D3D.cpp">
+      <Filter>App\Graphics\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="Text2D.cpp">
+      <Filter>App\Graphics\2D\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="PL_Cubes.cpp">
+      <Filter>App\Graphics\3D\Light\PointLights\LightCubes</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>App\Graphics\2D\Image</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="win.h">
+      <Filter>App\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="App.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D.h">
+      <Filter>App\Graphics\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>App\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D2D.h">
+      <Filter>App\Graphics\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>App\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectInput.h">
+      <Filter>App\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h">
+      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="StdScene.h">
+      <Filter>App\Graphics\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry.h">
+      <Filter>App\Graphics\3D\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Sky.h">
+      <Filter>App\Graphics\3D\Geometry\Sky</Filter>
+    </ClInclude>
+    <ClInclude Include="Cubes.h">
+      <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderStrct_Vertex.h">
+      <Filter>App\Graphics\3D\Shaders\Strct</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstBuffers.h">
+      <Filter>App\Graphics\3D\Shaders\Strct</Filter>
+    </ClInclude>
+    <ClInclude Include="Shaders.h">
+      <Filter>App\Graphics\3D\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderStrct_Light.h">
+      <Filter>App\Graphics\3D\Shaders\Strct</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>App\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraStrct.h">
+      <Filter>App\Graphics\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="VideoConfig.h">
+      <Filter>App\VideoConfig</Filter>
+    </ClInclude>
+    <ClInclude Include="Text2D.h">
+      <Filter>App\Graphics\2D\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="PL_Cubes.h">
+      <Filter>App\Graphics\3D\Light\PointLights\LightCubes</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>App\Graphics\2D\Image</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SOHTA engine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\EffectsColor.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsTexture.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="skyshader.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsLight.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsTextureClipped_Transparent.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsTextureClipped_Opaque.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,18 @@
+//////////////INSIGHTS/////////////
+CLEAN THE CODE 
+RENDERING WITH LISTS GETS MORE FPS THAN USING CLASSES 
+CLEAN THE SHADERS ,MAKE THEM MORE ORGANIZED 
+
+////////////THINGS TO DO////////////////
+MAKE A SHADER CREATOR FOR DIFERENT AMOUNTS OF LIGHTS
+check errors
+fix light rays that are going throught the boxes
+
+
+
+
+/////////GAME IDEAS///////////////
+
+
+
+
