@@ -5,15 +5,35 @@
 
 class Image : D2D
 {
+
+private:
+	struct Images
+	{
+		const wchar_t* name;
+		ID2D1Bitmap* bmp;
+
+		Images* next;
+		Images* prev;
+
+	};
+
 public:
 	Image();
 
 public:
-	void Load();
+	void Load(const wchar_t* name, const wchar_t* filePath);
+	void Draw(const wchar_t* name);
 	
 private:
-	ID2D1Bitmap* bmp;
+	void LoadImg(const wchar_t* filename);
+
+private:
+	Images* images;
+
 	IWICImagingFactory* wicfactory;
+	IWICBitmapDecoder* wicdecoder;
+	IWICBitmapFrameDecode* wicframe;
+	IWICFormatConverter* wicconverter;
 
 };
 

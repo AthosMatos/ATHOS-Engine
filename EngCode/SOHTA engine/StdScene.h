@@ -4,6 +4,7 @@
 #include "Ground.h"
 #include "DirectInput.h"
 #include "Sky.h"
+#include "Image.h"
 
 
 class StdScene 
@@ -19,6 +20,7 @@ public:
 	void ShowMicePosDebug(bool show);
 
 private:
+	Image* image;
 	CubeS* cubes;
 	PL_Cubes* Lightcubes;
 	Ground* GridGround;

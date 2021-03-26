@@ -8,6 +8,7 @@ void StdScene::LoadScene()
     cubes = new CubeS(nullptr);
     Lightcubes = new PL_Cubes();
     sky = new Sky();
+    image = new Image();
 
     sky->CreateSky();
     cubes->CreateCube(L"C1", L"fodase", 1);
@@ -21,6 +22,7 @@ void StdScene::LoadScene()
     Lightcubes->CreateLight(L"L2");
 
     GridGround->CreateGround(L"GRD", L"textures//grid.png");
+    image->Load(L"IMG_1", L"textures//texxture2.png");
 
     cout << "STD SCENE LOADED \n";
 }
@@ -99,7 +101,7 @@ void StdScene::Renderscene()
     GridGround->RenderGround(L"GRD");
 
     sky->Render();
-
+    image->Draw(L"IMG_1");
     cubes->RenderGroup(L"fodase");
 
     Lightcubes->Render(L"L1");
