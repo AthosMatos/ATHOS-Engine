@@ -37,7 +37,7 @@ protected:
 
 protected:
 	ID3D11RasterizerState* RS_Wireframe;
-	ID3D11RasterizerState* RS_Transparent1;
+	static ID3D11RasterizerState* RS_Transparent1;
 	static ID3D11RasterizerState* RS_Transparent2;
 	ID3D11RasterizerState* RS_Opaque;
 

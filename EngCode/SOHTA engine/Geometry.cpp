@@ -7,6 +7,7 @@ ID3D11Buffer* Geometry::cbPerObjectBuffer;
 cbPerFrame Geometry::constbuffPerFrame;
 ID3D11Buffer* Geometry::cbPerFrameBuffer;
 ID3D11RasterizerState* Geometry::RS_Transparent2;
+ID3D11RasterizerState* Geometry::RS_Transparent1;
 SLight Geometry::lighT[];
 
 XMVECTOR Geometry::rotyaxis;
