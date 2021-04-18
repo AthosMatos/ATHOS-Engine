@@ -158,12 +158,18 @@
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="ImageStrct.h" />
     <ClCompile Include="PL_Cubes.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Cubes.cpp" />
     <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Sky.cpp" />
+    <ClCompile Include="StaticDeclarations_Ground.cpp" />
+    <ClCompile Include="StaticDeclarations_Cubes.cpp" />
+    <ClCompile Include="StaticDeclarations_D2D.cpp" />
+    <ClCompile Include="StaticDeclarations_Image.cpp" />
+    <ClCompile Include="StaticDeclarations_Text2D.cpp" />
     <ClCompile Include="StaticDeclarations_Camera.cpp" />
     <ClCompile Include="StaticDeclarations_D3D.cpp" />
     <ClCompile Include="StaticDeclarations_Shaders.cpp" />
@@ -177,11 +183,13 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraStrct.h" />
+    <ClInclude Include="CubesStrct.h" />
     <ClInclude Include="D2D.h" />
     <ClInclude Include="D3D.h" />
     <ClInclude Include="DirectInput.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="GroundStrct.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Shaders.h" />
@@ -195,6 +203,7 @@
     <ClInclude Include="Cubes.h" />
     <ClInclude Include="StdScene.h" />
     <ClInclude Include="Text2D.h" />
+    <ClInclude Include="Text2DStrct.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="VideoConfig.h" />
     <ClInclude Include="win.h" />
@@ -210,6 +219,12 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </FxCompile>
     <FxCompile Include="shaders\EffectsLight.fx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsLightClipped.fx">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

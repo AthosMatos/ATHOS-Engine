@@ -1,12 +1,10 @@
 #include "Ground.h"
 
-Ground::GRD* Ground::grd;
-ID3D11Buffer* Ground::squareIndexBuffer;
-ID3D11Buffer* Ground::squareVertBuffer;
-
 Ground::Ground()
 {
     grd = NULL;
+    squareIndexBuffer = NULL;
+    squareVertBuffer = NULL;
 }
 
 void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
@@ -73,7 +71,6 @@ void Ground::UpdateGround(const wchar_t* GrdName, XMVECTOR rotaxis, float rot, b
     else if (ActivateTranslation == false && ActivateScale == true && rot == 0) fgrd->World = fgrd->Scale;
     else fgrd->World = fgrd->Rotation;
   
-
 }
 
 void Ground::RenderGround(const wchar_t* GrdName)
@@ -115,8 +112,20 @@ void Ground::Release()
 {
     if (squareVertBuffer)squareVertBuffer->Release();
     if (squareIndexBuffer)squareIndexBuffer->Release();
-    free(grd);
-  
+
+    GRD* Temp = grd;
+    GRD* TTemp;
+
+    while (true)
+    {
+        if (Temp != NULL)
+        {
+            TTemp = Temp->next;
+            free(Temp);
+            Temp = TTemp;
+        }
+        else break;
+    }
 }
 
 void Ground::CreateGrdIndexBuffer()

@@ -228,6 +228,53 @@ void Camera::Update(const wchar_t* cam)
         UpdateActiveCam();
 }
 
+void Camera::Remove(const wchar_t* cam)
+{
+    Cam* Fcam;
+    Fcam = CamHead;
+    while (Fcam->name != cam) { Fcam = Fcam->next; }
+
+    if (Fcam->prev == NULL)
+    {
+        CamHead = Fcam->next;
+        Fcam->next->prev = Fcam->prev;
+
+        free(Fcam);
+
+        return;
+    }
+    if (Fcam->next == NULL)
+    {
+        Fcam->prev->next = Fcam->next;
+
+        free(Fcam);
+
+        return;
+    }
+
+    Fcam->prev->next = Fcam->next;
+    Fcam->next->prev = Fcam->prev;
+    free(Fcam);
+}
+
+void Camera::Release()
+{
+    Cam* Temp;
+    Cam* TTemp;
+    Temp = CamHead;
+
+    while (true)
+    {
+        if (Temp != NULL)
+        {
+            TTemp = Temp->next;
+            free(Temp);
+            Temp = TTemp;
+        }
+        else break;
+    }
+}
+
 void Camera::UpdateFP(Cam* Tcam)
 {
     Tcam->camRotationMatrix = XMMatrixRotationRollPitchYaw(Tcam->camPitch, Tcam->camYaw, 0);

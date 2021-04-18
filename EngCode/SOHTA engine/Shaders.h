@@ -49,6 +49,7 @@ protected:
 	
 	static ID3D11PixelShader* PS_clip_O;
 	static ID3D11PixelShader* PS_clip_T;
+	static ID3D11PixelShader* PS_clip_LT;
 
 	static ID3D11VertexShader* SKYMAP_VS;
 	static ID3D11PixelShader* SKYMAP_PS;

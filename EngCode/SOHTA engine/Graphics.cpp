@@ -113,6 +113,7 @@ void Graphics::Release()
     if (d3d)d3d->Release();    
     if (fistscene)fistscene->Release();
     if (TXT)TXT->Release();
+    if (camera)camera->Release();
 }
 
 void Graphics::Input()

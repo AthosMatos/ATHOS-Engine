@@ -96,6 +96,10 @@ void Shaders::Create_PixelShader_Clipped()
 
     hr = D3DCompileFromFile(cliped_transparent_texture_shader_path, 0, 0, "PS", "ps_4_0", 0, 0, &PS_Buffer_clip, 0);
     hr = d3dDevice->CreatePixelShader(PS_Buffer_clip->GetBufferPointer(), PS_Buffer_clip->GetBufferSize(), NULL, &PS_clip_T);
+
+    hr = D3DCompileFromFile(L"shaders//EffectsLightClipped.fx", 0, 0, "PS", "ps_4_0", 0, 0, &PS_Buffer_clip, 0);
+    hr = d3dDevice->CreatePixelShader(PS_Buffer_clip->GetBufferPointer(), PS_Buffer_clip->GetBufferSize(), NULL, &PS_clip_LT);
+
 }
 
 void Shaders::Create_PixelShader_SkyBox()

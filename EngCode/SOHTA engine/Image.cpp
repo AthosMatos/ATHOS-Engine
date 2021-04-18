@@ -101,6 +101,29 @@ void Image::Draw(const wchar_t* name)
 	End2Din3D();
 }
 
+void Image::Release()
+{
+	Images* Temp;
+	Images* TTemp;
+	Temp = images;
+
+	while (true)
+	{
+		if (Temp != NULL)
+		{
+			TTemp = Temp->next;
+			free(Temp);
+			Temp = TTemp;
+		}
+		else break;
+	}
+
+	if (wicdecoder)wicdecoder->Release();
+	if (wicframe)wicframe->Release();
+	if (wicconverter)wicconverter->Release();
+	if (wicfactory)wicfactory->Release();
+}
+
 void Image::LoadImg(const wchar_t* filename)
 {
 	wicfactory->CreateDecoderFromFilename(
@@ -124,4 +147,33 @@ void Image::LoadImg(const wchar_t* filename)
 		WICBitmapPaletteTypeCustom
 	);
 	
+}
+
+void Image::UnloadImg(const wchar_t* name)
+{
+	Images* Fimages;
+	Fimages = images;
+	while (Fimages->name != name) { Fimages = Fimages->next; }
+
+	if (Fimages->prev == NULL)
+	{
+		images = Fimages->next;
+		Fimages->next->prev = Fimages->prev;
+
+		free(Fimages);
+
+		return;
+	}
+	if (Fimages->next == NULL)
+	{
+		Fimages->prev->next = Fimages->next;
+
+		free(Fimages);
+
+		return;
+	}
+
+	Fimages->prev->next = Fimages->next;
+	Fimages->next->prev = Fimages->prev;
+	free(Fimages);
 }

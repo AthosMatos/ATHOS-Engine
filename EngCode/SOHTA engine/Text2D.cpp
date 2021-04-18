@@ -1,9 +1,6 @@
 #include "Text2D.h"
 #include <comdef.h>
 
-Text2D::TextBox* Text2D::TB;
-const wchar_t* Text2D::SelectedTextBox;
-
 Text2D::Text2D() {}
 
 Text2D::Text2D(nullptr_t)

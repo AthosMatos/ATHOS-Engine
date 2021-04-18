@@ -1,14 +1,5 @@
 #include "Cubes.h"
 
-CubeS::Cubes* CubeS::cubes;
-bool CubeS::Queueflag;
-bool CubeS::debug_show_dist = false;
-ID3D11Buffer* CubeS::squareIndexBuffer;
-ID3D11Buffer* CubeS::squareVertBuffer_Tex_light;
-ID3D11Buffer* CubeS::squareVertBuffer_Tex;
-ID3D11Buffer* CubeS::squareVertBuffer_Color;
-
-
 CubeS::CubeS(){}
 
 CubeS::CubeS(nullptr_t)
@@ -142,15 +133,35 @@ void CubeS::RenderCube(const wchar_t* CubeName)
     {    
         if (fcube->ActivatePixelcliping)
         {
-            d3dDevCon->IASetVertexBuffers(0, 1, &squareVertBuffer_Tex, &stride_Tex, &offset);
-          
-            //Set the Input Layout
-            d3dDevCon->IASetInputLayout(vertLayout_tex);
+            if (fcube->ActivateLight)
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    constbuffPerFrame.light[x] = lighT[x];
+                }
 
-            d3dDevCon->VSSetShader(VS_tex, 0, 0);
-            d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
+                d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
+                d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
+
+                d3dDevCon->IASetVertexBuffers(0, 1, &squareVertBuffer_Tex_light, &stride_Tex_light, &offset);
+
+                //Set the Input Layout
+                d3dDevCon->IASetInputLayout(vertLayout_light);
+
+                d3dDevCon->VSSetShader(VS_light, 0, 0);
+                d3dDevCon->PSSetShader(PS_clip_LT, 0, 0);
+            }
+            else
+            {
+                d3dDevCon->IASetVertexBuffers(0, 1, &squareVertBuffer_Tex, &stride_Tex, &offset);
+
+                //Set the Input Layout
+                d3dDevCon->IASetInputLayout(vertLayout_tex);
+
+                d3dDevCon->VSSetShader(VS_tex, 0, 0);
+                d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
+            }
         }
-
         else if (fcube->ActivateLight)
         {
             for (int x = 0; x < 4; x++)
@@ -163,8 +174,6 @@ void CubeS::RenderCube(const wchar_t* CubeName)
 
             d3dDevCon->IASetVertexBuffers(0, 1, &squareVertBuffer_Tex_light, &stride_Tex_light, &offset);
 
-            d3dDevCon->PSSetShaderResources(0, 1, &fcube->Texture);
-            d3dDevCon->PSSetSamplers(0, 1, &fcube->TexSamplerState);
             //Set the Input Layout
             d3dDevCon->IASetInputLayout(vertLayout_light);
 
@@ -196,7 +205,6 @@ void CubeS::RenderCube(const wchar_t* CubeName)
         d3dDevCon->VSSetShader(VS_cor, 0, 0);
         d3dDevCon->PSSetShader(PS_cor, 0, 0);
     }
-
 
     WVP = fcube->cubeWorld * camView * camProjection;
     cbPerObj.World = XMMatrixTranspose(fcube->cubeWorld);
@@ -394,11 +402,13 @@ void CubeS::Release()
     if (squareVertBuffer_Color)squareVertBuffer_Color->Release();
 
     Cubes* Temp = cubes;
+    Cubes* TTemp;
+
     while (true)
     {
         if (Temp != NULL)
         {
-            Cubes* TTemp = Temp->next;
+            TTemp = Temp->next;
             free(Temp);
             Temp = TTemp;
         }
@@ -406,7 +416,7 @@ void CubeS::Release()
     }
 }
 
-CubeS::Cubes* CubeS::STDCubeCreate()
+Cubes* CubeS::STDCubeCreate()
 {
     if (cubes == NULL)
     {

@@ -133,6 +133,24 @@
     <ClCompile Include="Image.cpp">
       <Filter>App\Graphics\2D\Image</Filter>
     </ClCompile>
+    <ClCompile Include="ImageStrct.h">
+      <Filter>App\Graphics\2D\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Text2D.cpp">
+      <Filter>App\Graphics\2D\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_D2D.cpp">
+      <Filter>App\Graphics\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Cubes.cpp">
+      <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Ground.cpp">
+      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticDeclarations_Image.cpp">
+      <Filter>App\Graphics\2D\Image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win.h">
@@ -203,6 +221,15 @@
     <ClInclude Include="Image.h">
       <Filter>App\Graphics\2D\Image</Filter>
     </ClInclude>
+    <ClInclude Include="Text2DStrct.h">
+      <Filter>App\Graphics\2D\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="CubesStrct.h">
+      <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
+    </ClInclude>
+    <ClInclude Include="GroundStrct.h">
+      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SOHTA engine.rc" />
@@ -224,6 +251,9 @@
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
     <FxCompile Include="shaders\EffectsTextureClipped_Opaque.fx">
+      <Filter>App\Graphics\3D\Shaders\FX</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\EffectsLightClipped.fx">
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
   </ItemGroup>

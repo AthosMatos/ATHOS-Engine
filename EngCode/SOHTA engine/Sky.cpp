@@ -2,12 +2,12 @@
 
 Sky::Sky(){}
 
-void Sky::CreateSky()
+void Sky::CreateSky(const wchar_t* filepath)
 {
     CreateSphere(10,10);
 
     ID3D11Texture2D* SMTexture = 0;
-    CreateDDSTextureFromFile(d3dDevice, L"skymaps//skymap.dds", (ID3D11Resource**)&SMTexture,nullptr);
+    CreateDDSTextureFromFile(d3dDevice, filepath, (ID3D11Resource**)&SMTexture,nullptr);
 
     D3D11_TEXTURE2D_DESC SMTextureDesc;
     SMTextureDesc.MiscFlags= D3D11_RESOURCE_MISC_TEXTURECUBE;
@@ -171,9 +171,6 @@ void Sky::Update()
 
 void Sky::Render()
 {
-    UINT stride = sizeof(light_Vertex);
-    UINT offset = 0;
-
     d3dDevCon->IASetInputLayout(vertLayout_light);
     d3dDevCon->IASetIndexBuffer(sphereIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
     d3dDevCon->IASetVertexBuffers(0, 1, &sphereVertBuffer, &stride, &offset);
@@ -192,4 +189,9 @@ void Sky::Render()
     d3dDevCon->OMSetDepthStencilState(DSLessEqual, 0);
     d3dDevCon->DrawIndexed(NumSphereFaces * 3, 0, 0);
     
+}
+
+void Sky::Release()
+{
+    TexSamplerState->Release();
 }

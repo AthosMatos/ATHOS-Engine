@@ -10,11 +10,11 @@ void StdScene::LoadScene()
     sky = new Sky();
     image = new Image();
 
-    sky->CreateSky();
+    sky->CreateSky(L"skymaps//skymap.dds");
     cubes->CreateCube(L"C1", L"fodase", 1);
     cubes->CreateCube(L"C2", L"fodase", L"textures//texxture2.png");
     cubes->CreateCube(L"C3", L"fodase", L"textures//texxture.png");
-    cubes->CreateCube(L"C4", L"fodase", L"textures//texxture.png");
+    cubes->CreateCube(L"C4", L"fodase", L"textures//test.png");
     cubes->CreateCube(L"C5", L"fodase", L"textures//texxture23.png");
     cubes->CreateCube(L"C6", L"fodase", L"textures//texxture3.png");
 
@@ -101,7 +101,7 @@ void StdScene::Renderscene()
     GridGround->RenderGround(L"GRD");
 
     sky->Render();
-    image->Draw(L"IMG_1");
+   // image->Draw(L"IMG_1");
     cubes->RenderGroup(L"fodase");
 
     Lightcubes->Render(L"L1");
@@ -111,6 +111,8 @@ void StdScene::Renderscene()
 
 void StdScene::Release()
 {
+    sky->Release();
+    image->Release();
     GridGround->Release();
     cubes->Release();
     Lightcubes->Release();

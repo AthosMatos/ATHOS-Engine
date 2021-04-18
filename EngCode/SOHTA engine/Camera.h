@@ -15,6 +15,8 @@ public:
 public:
 	void Create(const wchar_t* name);
 	void Update(const wchar_t* cam);
+	void Remove(const wchar_t* cam);
+	void Release();
 
 	void UseCam(const wchar_t* cam);
 	void SetFistPerson();
@@ -24,7 +26,7 @@ public:
 private:
 	void UpdateActiveCam();
 	void StdCamPos();
-	void UpdatePY(Cam* cam);
+	void UpdatePY(Cam* cam);  //PITCH AND YAW
 	void UpdateFP(Cam* Tcam); //fist person
 	void UpdateNC(Cam* Tcam); //no clip
 
@@ -33,8 +35,10 @@ protected:
 	static XMMATRIX camView;
 	static XMMATRIX camProjection;
 
-protected:
+public:
 	static XMVECTOR camPosition;
+
+protected:
 	static XMVECTOR camTarget;
 	static XMVECTOR camUp;
 

@@ -157,6 +157,7 @@ void PL_Cubes::Render()
 void PL_Cubes::Release()
 {
     LightSource* Temp_LS = LS;
+    LightSource* TTemp;
 
     if (squareVertBuffer)squareVertBuffer->Release();
     if (squareIndexBuffer)squareIndexBuffer->Release();
@@ -165,7 +166,7 @@ void PL_Cubes::Release()
     {
         if (Temp_LS != NULL)
         {
-            LightSource* TTemp = Temp_LS->next;
+            TTemp = Temp_LS->next;
             free(Temp_LS);
             Temp_LS = TTemp;
         }

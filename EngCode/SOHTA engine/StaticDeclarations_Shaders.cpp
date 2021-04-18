@@ -6,6 +6,7 @@ ID3D11VertexShader* Shaders::VS_light = NULL;
 ID3D11PixelShader* Shaders::PS_tex = NULL;
 ID3D11PixelShader* Shaders::PS_clip_O = NULL;
 ID3D11PixelShader* Shaders::PS_clip_T = NULL;
+ID3D11PixelShader* Shaders::PS_clip_LT = NULL;
 ID3D11PixelShader* Shaders::PS_cor = NULL;
 ID3D11PixelShader* Shaders::PS_light = NULL;
 ID3D11VertexShader* Shaders::SKYMAP_VS = NULL;

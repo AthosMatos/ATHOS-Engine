@@ -1,36 +1,13 @@
 #pragma once
-#include "D2D.h"
+#include "Text2DStrct.h"
 
 class Text2D : D2D 
 {
-private:
-	struct TextBox
-	{
-		TextBox()
-		{
-			Brush = NULL;
-			TextFormat = NULL;
-		}
-
-		const wchar_t* ID;
-		const wchar_t* ActualText;
-
-		float size;
-
-		IDWriteTextFormat* TextFormat;
-
-		ID2D1SolidColorBrush* Brush;
-		D2D1_RECT_F rect;
-
-		TextBox* next;
-		TextBox* prev;
-
-	};
-
 public:
 	Text2D();
 	Text2D(nullptr_t);
 
+public:
 	void Create(const wchar_t* ID);
 
 	void Select(const wchar_t* ID);
