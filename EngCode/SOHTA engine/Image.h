@@ -10,6 +10,7 @@ public:
 public:
 	void Load(const wchar_t* name, const wchar_t* filePath);
 	void Draw(const wchar_t* name);
+	void Draw(const wchar_t* name,float Transparency);
 	void Release();
 
 private:

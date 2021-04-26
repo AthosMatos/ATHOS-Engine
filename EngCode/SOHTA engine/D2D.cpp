@@ -195,5 +195,51 @@ void D2D::End2Din3D()
     d3d->d3dDevCon->DrawIndexed(6, 0, 0);
 }
 
+void D2D::End2Din3D(float Transparency)
+{
+    keyedMutex10->ReleaseSync(1);
+
+    //Use the D3D11 Device
+    keyedMutex11->AcquireSync(1, 5);
+
+    //Use the shader resource representing the direct2d render target
+    //to texture a square which is rendered in screen space so it
+    //overlays on top of our entire scene. We use alpha blending so
+    //that the entire background of the D2D render target is "invisible",
+    //And only the stuff we draw with D2D will be visible (the text)
+
+    //Set the blend state for D2D render target texture objects
+
+    d3d->d3dDevCon->IASetInputLayout(geo->vertLayout_tex);
+    d3d->d3dDevCon->VSSetShader(geo->VS_tex, 0, 0);
+    d3d->d3dDevCon->PSSetShader(geo->PS_clip_O, 0, 0);
+
+    //Set the d2d Index buffer
+    d3d->d3dDevCon->IASetIndexBuffer(d2dIndexBuffer, DXGI_FORMAT_R32_UINT, 0);
+    //Set the d2d vertex buffer
+    UINT stride = sizeof(Textured_Vertex);
+    UINT offset = 0;
+    d3d->d3dDevCon->IASetVertexBuffers(0, 1, &d2dVertBuffer, &stride, &offset);
+
+    XMMATRIX m = XMMatrixIdentity();
+
+    geo->cbPerObj.WVP = XMMatrixTranspose(m);
+    geo->cbPerObj.World = XMMatrixTranspose(m);
+    d3d->d3dDevCon->UpdateSubresource(geo->cbPerObjectBuffer, 0, NULL, &geo->cbPerObj, 0, 0);
+    d3d->d3dDevCon->VSSetConstantBuffers(0, 1, &geo->cbPerObjectBuffer);
+    d3d->d3dDevCon->PSSetShaderResources(0, 1, &d2dTexture);
+
+    d3d->d3dDevCon->RSSetState(geo->RS_Transparent2);
+    d3d->d3dDevCon->OMSetDepthStencilState(geo->DSLessEqual, 0);
+
+
+    const float blendFactor[] = { Transparency, Transparency, Transparency };
+    d3d->d3dDevCon->OMSetBlendState(geo->BS_Transparent, blendFactor, 0xffffffff);
+
+    //Draw 
+    d3d->d3dDevCon->DrawIndexed(6, 0, 0);
+}
+
+
 
 

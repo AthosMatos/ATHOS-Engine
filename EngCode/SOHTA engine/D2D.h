@@ -22,6 +22,7 @@ public:
 protected:
 	void Start2Din3D();
 	void End2Din3D();
+	void End2Din3D(float Transparency);
 
 protected:
 	static ID2D1RenderTarget* D2DRenderTarget;

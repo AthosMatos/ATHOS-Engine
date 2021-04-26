@@ -15,11 +15,11 @@ struct Cubes
 	XMMATRIX Translation;
 
 	bool ActivateTransparenry;
+	bool queued;
 	bool ActivateWireframe;
 	bool opaque;
 	bool ActivatePixelcliping;
 	bool ActivateLight;
-	bool queued;
 
 	float debug_disfcam;
 	bool textured;

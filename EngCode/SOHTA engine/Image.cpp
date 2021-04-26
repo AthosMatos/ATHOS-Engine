@@ -101,6 +101,31 @@ void Image::Draw(const wchar_t* name)
 	End2Din3D();
 }
 
+void Image::Draw(const wchar_t* name, float Transparency)
+{
+	Images* Fimages;
+	Fimages = images;
+
+	while (Fimages->name != name) { Fimages = Fimages->next; }
+
+	Start2Din3D();
+
+	//Draw D2D content        
+	D2DRenderTarget->BeginDraw();
+
+	D2DRenderTarget->DrawBitmap(
+		Fimages->bmp,
+		D2D1::RectF(0.0f, 0.0f, Fimages->bmp->GetSize().width, Fimages->bmp->GetSize().height),
+		1.0f,
+		D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
+		D2D1::RectF(0.0f, 0.0f, Fimages->bmp->GetSize().width, Fimages->bmp->GetSize().height)
+	);
+
+	D2DRenderTarget->EndDraw();
+
+	End2Din3D(Transparency);
+}
+
 void Image::Release()
 {
 	Images* Temp;
@@ -117,10 +142,9 @@ void Image::Release()
 		}
 		else break;
 	}
-
-	if (wicdecoder)wicdecoder->Release();
-	if (wicframe)wicframe->Release();
 	if (wicconverter)wicconverter->Release();
+	if (wicframe)wicframe->Release();
+	if (wicdecoder)wicdecoder->Release();
 	if (wicfactory)wicfactory->Release();
 }
 

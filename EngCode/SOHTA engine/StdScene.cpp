@@ -69,7 +69,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
         true, XMFLOAT3(0.0f,//x
                         0.0f,//y
                          5.0f),//z
-        true, 1.0f, true, false, true, false, true);
+        true, 1.0f, true, false, false, false, true);
 
     cubes->UpdateCube(L"C3", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
@@ -101,8 +101,10 @@ void StdScene::Renderscene()
     GridGround->RenderGround(L"GRD");
 
     sky->Render();
-    image->Draw(L"IMG_1");
+
     cubes->RenderGroup(L"fodase");
+
+    image->Draw(L"IMG_1",0.95f);
 
     Lightcubes->Render(L"L1");
     Lightcubes->Render(L"L2");

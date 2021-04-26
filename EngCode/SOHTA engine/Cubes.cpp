@@ -754,6 +754,7 @@ void CubeS::StdQUEUE()
             }        
         }
     }
+
     //cout << "queued" << endl;
     TransparencyQUEUE();
 }
@@ -761,6 +762,8 @@ void CubeS::StdQUEUE()
 void CubeS::TransparencyQUEUE()
 {
     Cubes* fcube=cubes;
+
+
     while (!fcube->ActivateTransparenry)
     {
         if (fcube->next != NULL)
