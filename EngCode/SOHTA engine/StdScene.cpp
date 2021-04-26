@@ -101,7 +101,7 @@ void StdScene::Renderscene()
     GridGround->RenderGround(L"GRD");
 
     sky->Render();
-   // image->Draw(L"IMG_1");
+    image->Draw(L"IMG_1");
     cubes->RenderGroup(L"fodase");
 
     Lightcubes->Render(L"L1");
