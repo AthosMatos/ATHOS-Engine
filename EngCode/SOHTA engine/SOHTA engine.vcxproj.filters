@@ -239,6 +239,9 @@
     <ClInclude Include="RQ.h">
       <Filter>App\Graphics\RenderQueue</Filter>
     </ClInclude>
+    <ClInclude Include="RQStrct.h">
+      <Filter>App\Graphics\RenderQueue</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SOHTA engine.rc" />

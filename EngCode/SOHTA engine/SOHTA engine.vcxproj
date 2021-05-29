@@ -194,6 +194,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RQ.h" />
+    <ClInclude Include="RQStrct.h" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="ShaderStrct_Light.h" />
     <ClInclude Include="ShaderStrct_Vertex.h" />

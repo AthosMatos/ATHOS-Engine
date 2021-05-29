@@ -9,7 +9,7 @@ check errors
 fix light rays that are going throught the boxes
 FIX CLIPPED TEXTURES NOT GETTING LIGHT INTERACTION
 FIX 2D TEXTURE TRANSPARENCY NOT WORKING
-
+CREATE A GENERAL GEOMETRY STRUCT ??????? MAYBE ???? NOT SURE YET 
 
 /////////GAME IDEAS///////////////
 

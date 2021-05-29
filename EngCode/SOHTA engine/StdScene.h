@@ -9,7 +9,6 @@
 
 class StdScene 
 {
-
 public:
 	void LoadScene();
 	void UpdateScene(double frametime, double FPS);
