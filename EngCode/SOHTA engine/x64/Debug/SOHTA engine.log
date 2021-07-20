@@ -1,1 +1,6 @@
-﻿  SOHTA engine.vcxproj -> C:\Users\SAI DO MEU PC PEXTE\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
+﻿  Graphics.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  SOHTA engine.vcxproj -> C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe

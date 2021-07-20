@@ -161,7 +161,7 @@ void Graphics::Input()
 bool Graphics::InitSharedScreen(IDXGIAdapter1* Adapter)
 {
     //Create our Direc3D 10.1 Device///////////////////////////////////////////////////////////////////////////////////////
-    HRESULT hr = D3D10CreateDevice1(Adapter, D3D10_DRIVER_TYPE_HARDWARE, NULL, D3D10_CREATE_DEVICE_DEBUG | D3D10_CREATE_DEVICE_BGRA_SUPPORT,
+    HRESULT hr = D3D10CreateDevice1(Adapter, D3D10_DRIVER_TYPE_HARDWARE, NULL, D3D10_CREATE_DEVICE_BGRA_SUPPORT,
         D3D10_FEATURE_LEVEL_9_3, D3D10_1_SDK_VERSION, &d3d101Device);
 
     //Create Shared Texture that Direct3D 10.1 will render on//////////////////////////////////////////////////////////////

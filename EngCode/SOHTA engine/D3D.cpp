@@ -102,7 +102,7 @@ void D3D::CreateDevice()
         Adapter, // default adapter
         D3D_DRIVER_TYPE_UNKNOWN,
         0, // no software device
-        D3D11_CREATE_DEVICE_DEBUG | D3D11_CREATE_DEVICE_BGRA_SUPPORT,
+        D3D11_CREATE_DEVICE_BGRA_SUPPORT,
         0, 0, // default feature level array
         D3D11_SDK_VERSION,
         &d3dDevice,
