@@ -104,7 +104,7 @@ void StdScene::Renderscene()
 
     cubes->RenderGroup(L"fodase");
 
-    image->Draw(L"IMG_1",0.95f);
+    image->Draw(L"IMG_1",0.05f);
 
     Lightcubes->Render(L"L1");
     Lightcubes->Render(L"L2");
