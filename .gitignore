@@ -3,3 +3,7 @@
 ################################################################################
 
 /EngCode/.vs
+/EngCode/SOHTA engine/x64
+/EngCode/x64
+/EngCode/SOHTA engine/.vs
+*.obj

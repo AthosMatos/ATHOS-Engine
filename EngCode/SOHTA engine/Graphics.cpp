@@ -40,6 +40,7 @@ void Graphics::LoadScene()
 {
     camera->Create(L"CAM1");
     camera->Create(L"CAM2");
+    camera->Create(L"CAM3");
     camera->UseCam(cam);
     // camera->Set_FOV(50.0f);
 
