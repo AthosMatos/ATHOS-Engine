@@ -4,6 +4,7 @@ CubeS::CubeS(){}
 
 CubeS::CubeS(nullptr_t)
 {
+    debug_show_dist = false; //SHOW CUBES DISTANCE 
     cubes = NULL;
     CreateIndexBuffer();
     CreateVertexBuffer_light();
@@ -243,7 +244,6 @@ void CubeS::RenderCube(const wchar_t* CubeName)
 void CubeS::RenderGroup(const wchar_t* GroupName)
 {    
     bool flag=false;
-    debug_show_dist = true; //SHOW CUBES DISTANCE 
 
     StdQUEUE();
   

@@ -1,6 +1,45 @@
-﻿  Graphics.cpp
+﻿  Cubes.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  SOHTA engine.vcxproj -> C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2575,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(142): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(142): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  SOHTA engine.vcxproj -> C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
