@@ -1,5 +1,5 @@
 #pragma once
-#include "GroundStrct.h"
+#include "ModelStrct.h"
 
 class Ground : private Geometry
 {	
@@ -17,10 +17,10 @@ public:
 private:
 	void CreateGrdIndexBuffer();
 	void CreateVertexBuffer_Grd();
-	void CreateTexture(GRD* grd, const wchar_t* texPath);
+	void CreateTexture(Model* grd, const wchar_t* texPath);
 
 private:
-	static GRD* grd;
+	static Model* grd;
 
 	static ID3D11Buffer* squareIndexBuffer;
 	static ID3D11Buffer* squareVertBuffer;

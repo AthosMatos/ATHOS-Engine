@@ -1,15 +1,16 @@
 #pragma once
 #include "Geometry.h"
 
-struct Cubes
+struct Model
 {
+	//STD MODEL PROPRETIES
 	const wchar_t* name;
 	const wchar_t* GroupName;
 
 	XMFLOAT3 color;
 	int color_presets;
 
-	XMMATRIX cubeWorld;
+	XMMATRIX modelWorld;
 	XMMATRIX Rotation;
 	XMMATRIX Scale;
 	XMMATRIX Translation;
@@ -26,13 +27,20 @@ struct Cubes
 	ID3D11ShaderResourceView* Texture;
 	ID3D11SamplerState* TexSamplerState;
 
-	Cubes* next;
-	Cubes* prev;
+	bool ActivateTranslation;
+	bool ActivateScale;
+	int rot;
+
+	Model* next;
+	Model* prev;
+
+	int size; ///ground propretie
+
 
 	float GetDistFromCam()
 	{
 		XMVECTOR cubePos = XMVectorZero();
-		cubePos = XMVector3TransformCoord(cubePos, cubeWorld);
+		cubePos = XMVector3TransformCoord(cubePos, modelWorld);
 
 		float distX = XMVectorGetX(cubePos) - XMVectorGetX(Camera::camPosition);
 		float distY = XMVectorGetY(cubePos) - XMVectorGetY(Camera::camPosition);

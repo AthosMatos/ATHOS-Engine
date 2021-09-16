@@ -46,6 +46,7 @@ void PL_Cubes::CreateLight(const wchar_t* lightname)
             NLS->prev = LS;
             LS->next = NLS;
             while (LS->prev != NULL) { LS = LS->prev; }
+
             return;
         }
     }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Timer.h"
-#include "CubesStrct.h"
+#include "ModelStrct.h"
+#include "RQ.h"
 
 class CubeS : protected Geometry
 {
@@ -28,15 +29,18 @@ public:
 	void RenderCube(const wchar_t* CubeName);
 	void RenderGroup(const wchar_t* GroupName);
 
+	ID3D11Buffer* getIndexBuffer();
+	ID3D11Buffer* getVertBuffer(const wchar_t* type);
+
 	void Release();
 
 private:
-	Cubes* STDCubeCreate();
+	Model* STDCubeCreate();
 	void CreateIndexBuffer();
 	void CreateVertexBuffer_Colored(int preset, float red, float green, float blue);
 	void CreateVertexBuffer_Textured();
 	void CreateVertexBuffer_light();
-	void CreateTexture(Cubes* cubes, const wchar_t* texPath);
+	void CreateTexture(Model* cubes, const wchar_t* texPath);
 
 	void RenderTransparent();
 	void RenderWireframe();
@@ -49,11 +53,12 @@ private:
 	static bool debug_show_dist;
 
 private:
-	static Cubes* cubes;
-	static ID3D11Buffer* squareIndexBuffer;
-	static ID3D11Buffer* squareVertBuffer_Tex_light;
-	static ID3D11Buffer* squareVertBuffer_Tex;
-	static ID3D11Buffer* squareVertBuffer_Color;
+	static Model* cubes;
+	static RQ* renderQueue;
+	static ID3D11Buffer* CubeIndexBuffer;
+	static ID3D11Buffer* CubeVertBuffer_Tex_light;
+	static ID3D11Buffer* CubeVertBuffer_Tex;
+	static ID3D11Buffer* CubeVertBuffer_Color;
 
 	UINT stride_Tex_light;
 	UINT stride_Tex;

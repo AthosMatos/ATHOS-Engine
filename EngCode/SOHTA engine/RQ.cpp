@@ -1,168 +1,50 @@
 #include "RQ.h"
 
-RenderQueue* RQ::Q;
+vector <Model> RQ::Queue;
 
-void RQ::Queue(const wchar_t* name, bool ActivateTransparenry, XMMATRIX GeometryWorld)
+RQ::RQ()
 {
-    if (Q == NULL)
-    {
-        Q = (RenderQueue*)malloc(sizeof(RenderQueue));
 
-        Q->ActivateTransparenry = ActivateTransparenry;
-        Q->queued = false;
-        Q->name = name;
-        Q->GeometryWorld = GeometryWorld;
-
-        Q->next = NULL;
-        Q->prev = NULL;
-
-        return;
-    }
-    else
-    {
-        RenderQueue* NewQ;
-        NewQ = (RenderQueue*)malloc(sizeof(RenderQueue));
-
-        NewQ->queued = false;
-        NewQ->name = name;
-        NewQ->ActivateTransparenry = ActivateTransparenry;
-        NewQ->GeometryWorld = GeometryWorld;
-
-        NewQ->next = NULL;
-
-
-        if (Q->next == NULL)
-        {
-            Q->next = NewQ;
-            NewQ->prev = Q;
-
-            return;
-        }
-        else
-        {
-            while (Q->next != NULL) { Q = Q->next; }
-            Q->next = NewQ;
-            NewQ->prev = Q;
-            while (Q->prev != NULL) { Q = Q->prev; }
-
-            return;
-        }
-    }
 }
 
-void RQ::Organize()
+void RQ::addToQueue(Model data)
 {
-    RenderQueue* fQ = Q;
-
-    while (true)
-    {
-        if (fQ->ActivateTransparenry && !fQ->queued)
-        {
-            RenderQueue* NQ = fQ;
-            if (fQ->prev != NULL)fQ->prev->next = fQ->next;
-            if (fQ->next != NULL)fQ->next->prev = fQ->prev;
-            while (NQ->next != NULL)NQ = NQ->next;
-
-            NQ->next = fQ;
-            fQ->prev = NQ;
-            fQ->next = NULL;
-            fQ->queued = true;
-
-            while (fQ->prev != NULL)fQ = fQ->prev;
-        }
-        else
-        {
-            if (fQ->next != NULL)fQ = fQ->next;
-            else
-            {
-                while (fQ->prev != NULL)fQ = fQ->prev;
-                Q = fQ;
-                break;
-            }
-        }
-    }
-    TransparencyOrganize();
+    Queue.insert(Queue.begin(), data);
 }
 
-void RQ::Render()
+void RQ::UpdateModel(const wchar_t* ModelName, Model data)
 {
+    int i = 0;
+    for (; i < Queue.size(); i++)
+    {
+        if (Queue[i].name == ModelName) break;
+    }
+   
+    Queue[i].modelWorld = data.modelWorld;
+    Queue[i].Translation = data.Translation;
+    Queue[i].Scale = data.Scale;
+    Queue[i].Rotation = data.Rotation;
+    Queue[i].ActivateTransparenry = data.ActivateTransparenry;
+    Queue[i].ActivateWireframe = data.ActivateWireframe;
+    Queue[i].opaque = data.opaque;
+    Queue[i].ActivatePixelcliping = data.ActivatePixelcliping;
+    Queue[i].ActivateLight = data.ActivateLight;
+
+    if (data.ActivateTranslation == true && data.ActivateScale == true && data.rot == 0) Queue[i].modelWorld = Queue[i].Translation * Queue[i].Scale;
+    else if (data.ActivateTranslation == true && data.ActivateScale == true && data.rot != 0) Queue[i].modelWorld = Queue[i].Translation * Queue[i].Rotation * Queue[i].Scale;
+    else if (data.ActivateTranslation == true && data.ActivateScale == false && data.rot != 0) Queue[i].modelWorld = Queue[i].Translation * Queue[i].Rotation;
+    else if (data.ActivateTranslation == true && data.ActivateScale == false && data.rot == 0) Queue[i].modelWorld = Queue[i].Translation;
+    else if (data.ActivateTranslation == false && data.ActivateScale == true && data.rot != 0) Queue[i].modelWorld = Queue[i].Rotation * Queue[i].Scale;
+    else if (data.ActivateTranslation == false && data.ActivateScale == true && data.rot == 0) Queue[i].modelWorld = Queue[i].Scale;
+    else Queue[i].modelWorld = Queue[i].Rotation;
 }
 
-void RQ::TransparencyOrganize()
+void RQ::RenderModel()
 {
-    RenderQueue* fQ = Q;
 
+}
 
-    while (!fQ->ActivateTransparenry)
-    {
-        if (fQ->next != NULL)
-        {
-            fQ = fQ->next;
-        }
-        else return;
-    }
+void RQ::RenderAll()
+{
 
-    RenderQueue* NQ;
-    if (fQ->next != NULL)NQ = fQ;
-    else return;
-
-    while (true)
-    {
-        if (NQ->next != NULL)NQ = NQ->next;
-        else
-        {
-            if (fQ->next != NULL)
-            {
-                fQ = fQ->next;
-                if (fQ->next != NULL)NQ = fQ->next;
-                else
-                {
-                    while (fQ->prev != NULL)fQ = fQ->prev;
-                    Q = fQ;
-                    break;
-                };
-            }
-            else
-            {
-                while (fQ->prev != NULL)fQ = fQ->prev;
-                Q = fQ;
-                break;
-            }
-        }
-
-        if (fQ->GetDistFromCam() < NQ->GetDistFromCam())
-        {
-            if (fQ->next == NQ)
-            {
-                fQ->next = NQ->next;
-                NQ->next = fQ;
-                NQ->prev = fQ->prev;
-                NQ->prev->next = NQ;
-                fQ->prev = NQ;
-                if (fQ->next != NULL)fQ->next->prev = fQ;
-
-                RenderQueue* Temp = fQ;
-                fQ = NQ;
-                NQ = Temp;
-            }
-            else
-            {
-                RenderQueue* FCN = fQ->next;
-                RenderQueue* FCP = fQ->prev;
-
-                fQ->next = NQ->next;
-                fQ->prev = NQ->prev;
-                if (fQ->next != NULL)fQ->next->prev = fQ;
-                fQ->prev->next = fQ;
-                NQ->next = FCN;
-                NQ->prev = FCP;
-                NQ->next->prev = NQ;
-                NQ->prev->next = NQ;
-
-                FCN = fQ;
-                fQ = NQ;
-                NQ = FCN;
-            }
-        }
-    }
 }

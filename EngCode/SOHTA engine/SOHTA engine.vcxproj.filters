@@ -230,17 +230,11 @@
     <ClInclude Include="Text2DStrct.h">
       <Filter>App\Graphics\2D\Text</Filter>
     </ClInclude>
-    <ClInclude Include="CubesStrct.h">
-      <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
-    </ClInclude>
-    <ClInclude Include="GroundStrct.h">
-      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
-    </ClInclude>
     <ClInclude Include="RQ.h">
       <Filter>App\Graphics\RenderQueue</Filter>
     </ClInclude>
-    <ClInclude Include="RQStrct.h">
-      <Filter>App\Graphics\RenderQueue</Filter>
+    <ClInclude Include="ModelStrct.h">
+      <Filter>App\Graphics\3D\Geometry</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

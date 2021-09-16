@@ -11,7 +11,7 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
 {
     if (grd == NULL)
     {
-        grd = (GRD*)malloc(sizeof(GRD));
+        grd = (Model*)malloc(sizeof(Model));
         grd->Texture = NULL;
         grd->TexSamplerState = NULL;
 
@@ -25,8 +25,8 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
     }
     else
     {
-        GRD* Ngrd;
-        Ngrd = (GRD*)malloc(sizeof(GRD));
+        Model* Ngrd;
+        Ngrd = (Model*)malloc(sizeof(Model));
         Ngrd->next = NULL;
         Ngrd->name = GrdName;
         CreateTexture(Ngrd, texpath);
@@ -52,30 +52,30 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
 
 void Ground::UpdateGround(const wchar_t* GrdName, XMVECTOR rotaxis, float rot, bool ActivateTranslation, XMFLOAT3 pos, bool ActivateScale, int size)
 {
-    GRD* fgrd;
+    Model* fgrd;
     fgrd = grd;
 
     while (fgrd->name != GrdName) { fgrd = fgrd->next; }
 
-    fgrd->World = XMMatrixIdentity();
+    fgrd->modelWorld = XMMatrixIdentity();
     fgrd->Translation = XMMatrixTranslation(pos.x / size, pos.y / size, pos.z / size);
     fgrd->Scale = XMMatrixScaling(10.0f * size, 1.0f, 10.0f * size); ///gridsetup, this may change if the ground texture is another tex
     fgrd->Rotation = XMMatrixRotationAxis(rotaxis, rot);
     fgrd->size = size;
 
-    if (ActivateTranslation == true && ActivateScale == true && rot == 0) fgrd->World = fgrd->Translation * fgrd->Scale;
-    else if (ActivateTranslation == true && ActivateScale == true && rot != 0) fgrd->World = fgrd->Translation * fgrd->Rotation * fgrd->Scale;
-    else if (ActivateTranslation == true && ActivateScale == false && rot != 0) fgrd->World = fgrd->Translation * fgrd->Rotation;
-    else if (ActivateTranslation == true && ActivateScale == false && rot == 0) fgrd->World = fgrd->Translation;
-    else if (ActivateTranslation == false && ActivateScale == true && rot != 0) fgrd->World = fgrd->Rotation * fgrd->Scale;
-    else if (ActivateTranslation == false && ActivateScale == true && rot == 0) fgrd->World = fgrd->Scale;
-    else fgrd->World = fgrd->Rotation;
+    if (ActivateTranslation == true && ActivateScale == true && rot == 0) fgrd->modelWorld = fgrd->Translation * fgrd->Scale;
+    else if (ActivateTranslation == true && ActivateScale == true && rot != 0) fgrd->modelWorld = fgrd->Translation * fgrd->Rotation * fgrd->Scale;
+    else if (ActivateTranslation == true && ActivateScale == false && rot != 0) fgrd->modelWorld = fgrd->Translation * fgrd->Rotation;
+    else if (ActivateTranslation == true && ActivateScale == false && rot == 0) fgrd->modelWorld = fgrd->Translation;
+    else if (ActivateTranslation == false && ActivateScale == true && rot != 0) fgrd->modelWorld = fgrd->Rotation * fgrd->Scale;
+    else if (ActivateTranslation == false && ActivateScale == true && rot == 0) fgrd->modelWorld = fgrd->Scale;
+    else fgrd->modelWorld = fgrd->Rotation;
   
 }
 
 void Ground::RenderGround(const wchar_t* GrdName)
 {
-    GRD* fgrd;
+    Model* fgrd;
     fgrd = grd;
 
     while (fgrd->name != GrdName) { fgrd = fgrd->next; }
@@ -96,8 +96,8 @@ void Ground::RenderGround(const wchar_t* GrdName)
     d3dDevCon->PSSetShaderResources(0, 1, &grd->Texture);
     d3dDevCon->PSSetSamplers(0, 1, &grd->TexSamplerState);
 
-    WVP = grd->World * camView * camProjection;
-    cbPerObj.World = XMMatrixTranspose(grd->World);
+    WVP = grd->modelWorld * camView * camProjection;
+    cbPerObj.World = XMMatrixTranspose(grd->modelWorld);
     cbPerObj.WVP = XMMatrixTranspose(WVP);
     d3dDevCon->UpdateSubresource(cbPerObjectBuffer, 0, NULL, &cbPerObj, 0, 0);
     d3dDevCon->VSSetConstantBuffers(0, 1, &cbPerObjectBuffer);
@@ -113,8 +113,8 @@ void Ground::Release()
     if (squareVertBuffer)squareVertBuffer->Release();
     if (squareIndexBuffer)squareIndexBuffer->Release();
 
-    GRD* Temp = grd;
-    GRD* TTemp;
+    Model* Temp = grd;
+    Model* TTemp;
 
     while (true)
     {
@@ -187,7 +187,7 @@ void Ground::CreateVertexBuffer_Grd()
     squareVertBuffer->Release();
 }
 
-void Ground::CreateTexture(GRD* grd, const wchar_t* texPath)
+void Ground::CreateTexture(Model* grd, const wchar_t* texPath)
 {
     CreateWICTextureFromFile(d3dDevice, texPath, nullptr, &grd->Texture, 0);
 
