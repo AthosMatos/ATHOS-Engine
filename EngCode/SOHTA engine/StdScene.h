@@ -5,7 +5,6 @@
 #include "DirectInput.h"
 #include "Sky.h"
 #include "Image.h"
-#include "RQ.h"
 
 class StdScene 
 {

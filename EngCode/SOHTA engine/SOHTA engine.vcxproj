@@ -163,7 +163,6 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Cubes.cpp" />
-    <ClCompile Include="RQ.cpp" />
     <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Sky.cpp" />
     <ClCompile Include="StaticDeclarations_Ground.cpp" />
@@ -192,7 +191,6 @@
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="RQ.h" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="ShaderStrct_Light.h" />
     <ClInclude Include="ShaderStrct_Vertex.h" />

@@ -1,7 +1,6 @@
 #pragma once
 #include "Timer.h"
 #include "ModelStrct.h"
-#include "RQ.h"
 
 class CubeS : protected Geometry
 {
@@ -54,7 +53,6 @@ private:
 
 private:
 	static Model* cubes;
-	static RQ* renderQueue;
 	static ID3D11Buffer* CubeIndexBuffer;
 	static ID3D11Buffer* CubeVertBuffer_Tex_light;
 	static ID3D11Buffer* CubeVertBuffer_Tex;

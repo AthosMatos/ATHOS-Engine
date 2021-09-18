@@ -67,9 +67,6 @@
     <Filter Include="App\Graphics\2D\Image">
       <UniqueIdentifier>{94c94706-2dc3-44a5-a7d4-7ee5467f7f35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\Graphics\RenderQueue">
-      <UniqueIdentifier>{756a8496-57fa-406a-80b4-0beb0e790de7}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win.cpp">
@@ -154,9 +151,6 @@
     <ClCompile Include="StaticDeclarations_Image.cpp">
       <Filter>App\Graphics\2D\Image</Filter>
     </ClCompile>
-    <ClCompile Include="RQ.cpp">
-      <Filter>App\Graphics\RenderQueue</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win.h">
@@ -229,9 +223,6 @@
     </ClInclude>
     <ClInclude Include="Text2DStrct.h">
       <Filter>App\Graphics\2D\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="RQ.h">
-      <Filter>App\Graphics\RenderQueue</Filter>
     </ClInclude>
     <ClInclude Include="ModelStrct.h">
       <Filter>App\Graphics\3D\Geometry</Filter>

@@ -9,7 +9,6 @@ CubeS::CubeS(nullptr_t)
     CreateIndexBuffer();
     CreateVertexBuffer_light();
     CreateVertexBuffer_Textured();
-    renderQueue=new RQ();
 }
 
 /////////////////////OVERLOADED CREATE FUNCTIONS/////////////////
