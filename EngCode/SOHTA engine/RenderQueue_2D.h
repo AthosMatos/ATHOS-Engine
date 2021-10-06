@@ -9,6 +9,7 @@ class RenderQueue_2D : protected D2D
 {
 public:
 	void Render();
+	void Release();
 
 protected:
 	static map <const wchar_t*, TextBox> TextsData;

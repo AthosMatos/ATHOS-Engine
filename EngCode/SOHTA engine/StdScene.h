@@ -26,6 +26,7 @@ public:
 private:
 	void Debug_info();
 
+private:
 	Image* image;
 	CubeS* cubes;
 	Camera* camera;
@@ -33,7 +34,7 @@ private:
 
 	Ground* GridGround;
 	Sky* sky;
-	float rot=0;
+	float rot = 0;
 	DirectInput DI;
 	int sens = 10;
 	Text2D* TXT;

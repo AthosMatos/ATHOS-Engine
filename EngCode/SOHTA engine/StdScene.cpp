@@ -170,7 +170,6 @@ void StdScene::Release()
 void StdScene::SceneInput(double frametime)
 {
     DIMOUSESTATE mouseCurrState;
-
     BYTE keyboardState[256];
 
     DI.DIKeyboard->Acquire();
@@ -195,7 +194,6 @@ void StdScene::SceneInput(double frametime)
         pressflag_cam = 1;
     }
     else if (!(keyboardState[DIK_O] & 0x80)) pressflag_cam = 0;
-
 
     ///fps show flag
     if (keyboardState[DIK_Z] & 0x80)

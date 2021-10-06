@@ -1,9 +1,6 @@
 #include "Graphics.h"
 #include <string.h>
 
-#define pressflag_cam pressflag[0]
-#define pressflag_fpsshow pressflag[1]
-
 void Graphics::InitGfx(HWND hwnd)
 {
     cout << "GRAPHICS STARTED\n";
@@ -38,11 +35,9 @@ void Graphics::LoadScene()
 
 void Graphics::Update(double FrameTime, double FPS)
 {
-   
     Input();
     fistscene->SceneInput(FrameTime); 
     fistscene->UpdateScene(FrameTime,FPS);
-
 }
 
 void Graphics::Render()

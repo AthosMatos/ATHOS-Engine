@@ -35,6 +35,13 @@ void RenderQueue_2D::Render()
     End2Din3D();
 }
 
+void RenderQueue_2D::Release()
+{
+    TextsData.clear();
+    ImagesData.clear();
+    RenderOrder.clear();
+}
+
 void RenderQueue_2D::ImageRender(int i)
 {
     if (ImagesData[RenderOrder[i]].render)
