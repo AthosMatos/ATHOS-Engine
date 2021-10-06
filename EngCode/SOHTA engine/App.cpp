@@ -3,16 +3,17 @@
 App::App()
 {
 	ZeroMemory(&msg, sizeof(MSG));
-    Gfx = new Graphics();
+    Gfx = new Graphics;
+    window = new Win;
 }
 
 void App::StartApp(HINSTANCE hInstance)
 {
     cout << "APP STARTED\n";
-    window.StartWin(hInstance);
-    Gfx->InitGfx(window.GetHwnd());
+    window->StartWin(hInstance);
+    Gfx->InitGfx(window->GetHwnd());
     Gfx->LoadScene();
-    Dinput.InitDirectInput(window.GetHwnd(), hInstance);
+    Dinput.InitDirectInput(window->GetHwnd(), hInstance);
     cout << "APP LOADED\n";
     
 }
@@ -51,7 +52,7 @@ void App::EndApp()
 { 
     Gfx->Release();
     Dinput.Release();
-    PostMessage(window.GetHwnd(), WM_DESTROY, 0, 0);
+    PostMessage(window->GetHwnd(), WM_DESTROY, 0, 0);
 }
 
 bool App::Input()

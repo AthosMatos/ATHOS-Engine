@@ -3,9 +3,8 @@
 #include "Graphics.h"
 #include "Timer.h"
 #include "DirectInput.h"
-#include "VideoConfig.h"
 
-class App : private VideoConfig
+class App
 {
 public:
 	App();
@@ -20,9 +19,14 @@ private:
 
 private:
 	Graphics* Gfx;
-	Win window;
+	Win* window;
+
+private:
 	Timer timer;
-	MSG msg;
 	DirectInput Dinput;
+
+private:
+	MSG msg;
+	
 };
 

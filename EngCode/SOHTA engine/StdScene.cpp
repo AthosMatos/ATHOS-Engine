@@ -1,14 +1,31 @@
 #include "StdScene.h"
 
+#define LOG(var) cout<<var<<endl;
+
 void StdScene::LoadScene()
 {
     cout << "STARTING STD SCENE\n";
+
+    camera = new Camera(nullptr);
+    cam = L"CAM1";
+
+    show_fps = false;
+    for (int x = 0; x < 100; x++)
+    {
+        pressflag_vector[x] = 0;
+    }
+
+    camera->Create(L"CAM1");
+    camera->Create(L"CAM2");
+    camera->UseCam(cam);
+    // camera->Set_FOV(50.0f);
 
     GridGround = new Ground();
     cubes = new CubeS(nullptr);
     Lightcubes = new PL_Cubes();
     sky = new Sky();
     image = new Image();
+    TXT = new Text2D;
 
     sky->CreateSky(L"skymaps//skymap.dds");
     cubes->CreateCube(L"C1", L"fodase", 1);
@@ -18,10 +35,20 @@ void StdScene::LoadScene()
     cubes->CreateCube(L"C5", L"fodase", L"textures//texxture23.png");
     cubes->CreateCube(L"C6", L"fodase", L"textures//texxture3.png");
 
+    TXT->Create(L"FPS");
+    TXT->Create(L"AlphaInfo");
+    TXT->Create(L"Info");
+    TXT->Create(L"Info2");
+    TXT->Create(L"cam");
+
+    TXT->Update(L"FPS", L"FPS:", 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
+    TXT->Update(L"AlphaInfo", L"SOTHA engine Ultra_Alpha_Beta", 15.0f, 680, 520, D2D1::ColorF::White, 0);
+    TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA", 15.0f, 700, 10, D2D1::ColorF::White, 0);
+
     Lightcubes->CreateLight(L"L1");
     Lightcubes->CreateLight(L"L2");
 
-    GridGround->CreateGround(L"GRD", L"textures//grid.png");
+    GridGround->CreateGround(L"GRD", L"textures//grid3.png");
     image->Load(L"IMG_1", L"textures//texxture2.png");
 
     cout << "STD SCENE LOADED \n";
@@ -29,6 +56,19 @@ void StdScene::LoadScene()
 
 void StdScene::UpdateScene(double frametime, double FPS)
 {  
+    fps = FPS;
+    
+    if (show_fps)
+    {
+        TXT->Update(L"FPS", L"FPS:", FPS, 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
+    }
+
+    TXT->Update(L"cam", cam, 30.0f, 0, 0, D2D1::ColorF::Red, 0);
+
+    image->Update(L"IMG_1", 0.0f);
+
+    camera->Update(cam);
+
     ///rotation math circle wise
     rot += 0.5f*frametime;
     if (rot > XM_2PI) rot = 0.0f;
@@ -61,39 +101,40 @@ void StdScene::UpdateScene(double frametime, double FPS)
 
     cubes->UpdateCube(L"C1", XMVectorSet(1.0f, 1.0f, 0.0f, 0.0f), 0,
         false, XMFLOAT3(0.0f,//x
-                         0.0f,//y
-                          10.0f),//z
-        true, 0.7f, false, false, true, false, false);
+            0.0f,//y
+            10.0f),//z
+        true, 0.7f, false, false, true, false, false, true);
 
     cubes->UpdateCube(L"C2", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(0.0f,//x
                         0.0f,//y
                          5.0f),//z
-        true, 1.0f, true, false, false, false, true);
+        true, 1.0f, true, false, false, false, true, true);
 
     cubes->UpdateCube(L"C3", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                          0.0f),//z
-        true, 1.0f, false, false, true, false, false);
+        true, 1.0f, false, false, true, false, false, true);
 
     cubes->UpdateCube(L"C4", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(10.0f,//x
                         0.0f,//y
                          5.0f),//z
-        true, 1.0f, false, false, true, false, true);
+        true, 1.0f, false, false, true, false, true, true);
 
     cubes->UpdateCube(L"C5", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                          10.0f),//z
-        true, 1.0f, false, false, true, false, false);
+        true, 1.0f, false, false, true, false, false, true);
 
     cubes->UpdateCube(L"C6", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                         -5.0f),//z
-        true, 1.0f, true, false, true, true, false);
+        true, 1.0f, true, false, true, true, false, true);
+        
 }
 
 void StdScene::Renderscene()
@@ -101,14 +142,18 @@ void StdScene::Renderscene()
     GridGround->RenderGround(L"GRD");
 
     sky->Render();
-
     cubes->RenderGroup(L"fodase");
 
-    image->Draw(L"IMG_1",1.0f);
+    image->Draw(L"IMG_1", true);
 
     Lightcubes->Render(L"L1");
-    Lightcubes->Render(L"L2");
-   
+    Lightcubes->Render(L"L2");   
+
+    if (show_fps) TXT->Render(L"FPS", true);
+    else TXT->Render(L"FPS", false);
+  
+    Debug_info();
+
 }
 
 void StdScene::Release()
@@ -118,6 +163,8 @@ void StdScene::Release()
     GridGround->Release();
     cubes->Release();
     Lightcubes->Release();
+    if (TXT)TXT->Release();
+    if (camera)camera->Release();
 }
 
 void StdScene::SceneInput(double frametime)
@@ -134,6 +181,33 @@ void StdScene::SceneInput(double frametime)
     DI.DIKeyboard->GetDeviceState(sizeof(keyboardState), (LPVOID)&keyboardState);
 
     float speed = (double)15.0f * frametime;
+
+    ///camera change flag
+    if (keyboardState[DIK_O] & 0x80)
+    {
+        if (pressflag_cam == 0)
+        {
+            if (cam != L"CAM2")cam = L"CAM2";
+            else cam = L"CAM1";
+
+            camera->UseCam(cam);
+        }
+        pressflag_cam = 1;
+    }
+    else if (!(keyboardState[DIK_O] & 0x80)) pressflag_cam = 0;
+
+
+    ///fps show flag
+    if (keyboardState[DIK_Z] & 0x80)
+    {
+        if (pressflag_fpsshow == 0)
+        {
+            if (!show_fps) show_fps = true;
+            else if (show_fps) show_fps = false;    
+        }
+        pressflag_fpsshow = 1;
+    }
+    else if (!(keyboardState[DIK_Z] & 0x80)) pressflag_fpsshow = 0;
 
     if (keyboardState[DIK_A] & 0x80)
     {
@@ -154,11 +228,11 @@ void StdScene::SceneInput(double frametime)
     if ((mouseCurrState.lX != DI.mouseLastState.lX) || (mouseCurrState.lY != DI.mouseLastState.lY))
     {   
         StdNoClipMouse(mouseCurrState);
-    
         ShowMicePosDebug(false);
 
         DI.mouseLastState = mouseCurrState;
     }
+   
     return;
 }
 
@@ -189,6 +263,14 @@ void StdScene::ShowMicePosDebug(bool show)
         cout << "LEFT RIGHT : " << (int)((DI.camYaw * 10) * sens) << endl;
         cout << "UP DOWN : " << (int)((DI.camPitch * 10) * sens) << endl;
     }   
+}
+
+void StdScene::Debug_info()
+{   
+    TXT->Render(L"AlphaInfo", true);
+    TXT->Render(L"Info", true);
+    TXT->Render(L"cam", true);
+    
 }
 
 

@@ -8,47 +8,38 @@
 #include "StdScene.h"
 #include "Camera.h"
 #include "VideoConfig.h"
+#include "RenderQueue_2D.h"
 
-class Graphics : private VideoConfig
+class Graphics : VideoConfig
 {
 public:
-	Graphics();
 	void InitGfx(HWND hwnd);
 	void LoadScene();
 	void Update(double FrameTime, double FPS);
 	void Render();
 	void Release();
+	
+private:
 	void Input();
-
-	D3D* d3d;
-	Camera* camera;
-
-private:
 	bool InitSharedScreen(IDXGIAdapter1* Adapter);
-	void Debug_info();
 
 private:
-	Geometry* geomtry;
+	D3D* d3d;
 	D2D* d2d;
 
-	Text2D* TXT;
+	Geometry* geomtry;
 
 	StdScene* fistscene;
 	DirectInput DI;
 
-	const wchar_t* cam;
+	RenderQueue_2D* RQ2D;
+
 private:
 	ID3D10Device1* d3d101Device;
 	IDXGIKeyedMutex* keyedMutex11;
 	IDXGIKeyedMutex* keyedMutex10;
-	ID3D11Texture2D* BackBuffer11;
 	ID3D11Texture2D* sharedTex11;
 	IDXGISurface1* sharedSurface10;
-	
-private:
-	double fps;
-	bool show_fps;
-	bool pressflag[100];
 	
 };
 

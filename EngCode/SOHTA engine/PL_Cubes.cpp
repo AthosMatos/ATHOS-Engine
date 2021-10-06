@@ -76,7 +76,7 @@ void PL_Cubes::Update(const wchar_t* lightname, XMVECTOR rotaxis, float rot,
         else break;
     }
     CubeS::ChangeColor(lightname, color);
-    Cwrld = CubeS::UpdateCube(lightname, rotaxis, rot, ActivateTranslation, pos, ActivateScale, size, false, false, true, false, false);
+    Cwrld = CubeS::UpdateCube(lightname, rotaxis, rot, ActivateTranslation, pos, ActivateScale, size, false, false, true, false, false, true);
     UpdateLight(fLS, x, range, XMFLOAT4(color.x * intensity, color.y * intensity, color.z * intensity, 1.0f), ambient);
 }
 
@@ -100,7 +100,7 @@ void PL_Cubes::Update(XMVECTOR rotaxis, float rot,
     }
 
     CubeS::ChangeColor(Selected_Light, color);
-    Cwrld = CubeS::UpdateCube(Selected_Light, rotaxis, rot, ActivateTranslation, pos, ActivateScale, size, false, false, true, false, false);
+    Cwrld = CubeS::UpdateCube(Selected_Light, rotaxis, rot, ActivateTranslation, pos, ActivateScale, size, false, false, true, false, false, true);
     UpdateLight(fLS, x, range, XMFLOAT4(color.x * intensity, color.y * intensity, color.z * intensity, 1.0f), ambient);
 }
 

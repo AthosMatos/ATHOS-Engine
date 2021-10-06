@@ -2,7 +2,6 @@
 
 void Timer::StartTimer()
 {
-   
     LARGE_INTEGER frequencyCount;
     QueryPerformanceFrequency(&frequencyCount);
 

@@ -1,16 +1,18 @@
 #pragma once
-#include "ImageStrct.h"
+#include "RenderQueue_2D.h"
 #include <wincodec.h>
 
-class Image : D2D
+class Image : RenderQueue_2D
 {
 public:
 	Image();
 
 public:
 	void Load(const wchar_t* name, const wchar_t* filePath);
-	void Draw(const wchar_t* name);
-	void Draw(const wchar_t* name,float Transparency);
+	void Update(const wchar_t* name, float Transparency);
+	void Draw(const wchar_t* name, bool state);
+	void MoveLayerUp(int amount);
+	void MoveLayerDown(int amount);
 	void Release();
 
 private:
@@ -18,7 +20,6 @@ private:
 	void UnloadImg(const wchar_t* name);
 
 private:
-	static Images* images;
 
 	static IWICImagingFactory* wicfactory;
 	static IWICBitmapDecoder* wicdecoder;

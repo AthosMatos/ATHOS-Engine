@@ -6,7 +6,7 @@
 
 #define stdFOV 100.0f
 
-class Camera : private VideoConfig
+class Camera : VideoConfig
 {
 public:
 	Camera(nullptr_t);

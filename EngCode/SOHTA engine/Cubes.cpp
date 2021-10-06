@@ -84,8 +84,7 @@ void CubeS::CreateCube(const wchar_t* CubeName, const wchar_t* GroupName, int co
 }
 
 
-
-XMMATRIX CubeS::UpdateCube(const wchar_t* CubeName, XMVECTOR rotaxis, float rot, bool ActivateTranslation, XMFLOAT3 pos, bool ActivateScale, float size, bool transparent, bool wireframe, bool opaque, bool pixelcliping, bool light)
+XMMATRIX CubeS::UpdateCube(const wchar_t* CubeName, XMVECTOR rotaxis, float rot, bool ActivateTranslation, XMFLOAT3 pos, bool ActivateScale, float size, bool transparent, bool wireframe, bool opaque, bool pixelcliping, bool light,bool render)
 {
     Model* fcube;
     fcube = cubes;
@@ -101,6 +100,7 @@ XMMATRIX CubeS::UpdateCube(const wchar_t* CubeName, XMVECTOR rotaxis, float rot,
     fcube->opaque = opaque;
     fcube->ActivatePixelcliping = pixelcliping;
     fcube->ActivateLight = light;
+    fcube->render = render;
 
     if (ActivateTranslation == true && ActivateScale == true && rot == 0) fcube->modelWorld = fcube->Translation * fcube->Scale;
     else if (ActivateTranslation == true && ActivateScale == true && rot != 0)fcube->modelWorld = fcube->Translation * fcube->Rotation * fcube->Scale;
@@ -615,31 +615,64 @@ void CubeS::RenderGroup(const wchar_t* GroupName)
 
     while (true)
     {
-        if (debug_show_dist)
+        if (fcube->render)
         {
-            if (fcube->name != L"C4") //EXECPS C4 COUSE ITS MOVING CONSTANTLY
+            if (debug_show_dist)
             {
-                if (fcube->GetDistFromCam() != fcube->debug_disfcam)
+                if (fcube->name != L"C4") //EXECPS C4 COUSE ITS MOVING CONSTANTLY
                 {
-                    wstring ws(fcube->name);
-                    string str(ws.begin(), ws.end());
+                    if (fcube->GetDistFromCam() != fcube->debug_disfcam)
+                    {
+                        wstring ws(fcube->name);
+                        string str(ws.begin(), ws.end());
 
-                    fcube->debug_disfcam = fcube->GetDistFromCam();
-                    cout << str << "-" << (int)fcube->debug_disfcam << endl;
+                        fcube->debug_disfcam = fcube->GetDistFromCam();
+                        cout << str << "-" << (int)fcube->debug_disfcam << endl;
 
-                    flag = true;
+                        flag = true;
+                    }
                 }
             }
-        }
 
-        if (fcube->GroupName = GroupName)
-        {
-            if (fcube->textured)
+            if (fcube->GroupName == GroupName)
             {
-                if (fcube->ActivatePixelcliping)
+                if (fcube->textured)
                 {
-                    if (fcube->ActivateLight)
+                    if (fcube->ActivatePixelcliping)
                     {
+                        if (fcube->ActivateLight)
+                        {
+                            for (int x = 0; x < 4; x++)
+                            {
+                                constbuffPerFrame.light[x] = lighT[x];
+                            }
+
+                            d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
+                            d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
+
+                            d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex_light, &stride_Tex_light, &offset);
+
+                            //Set the Input Layout
+                            d3dDevCon->IASetInputLayout(vertLayout_light);
+
+                            d3dDevCon->VSSetShader(VS_light, 0, 0);
+                            d3dDevCon->PSSetShader(PS_clip_LT, 0, 0);
+                        }
+                        else
+                        {
+                            d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex, &stride_Tex, &offset);
+
+                            //Set the Input Layout
+                            d3dDevCon->IASetInputLayout(vertLayout_tex);
+
+                            d3dDevCon->VSSetShader(VS_tex, 0, 0);
+                            d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
+                        }
+                    }
+
+                    else if (fcube->ActivateLight)
+                    {
+                        ///THATS FOR A DINAMIC LIGHT, IN CASE OF A CONSTANT LIGHT I COULD JUST EXECUTE THIS ONCE AND NOT EVERY TIME I RENDER THE SCENE
                         for (int x = 0; x < 4; x++)
                         {
                             constbuffPerFrame.light[x] = lighT[x];
@@ -649,118 +682,65 @@ void CubeS::RenderGroup(const wchar_t* GroupName)
                         d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
 
                         d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex_light, &stride_Tex_light, &offset);
-
+                        d3dDevCon->PSSetShaderResources(0, 1, &fcube->Texture);
+                        d3dDevCon->PSSetSamplers(0, 1, &fcube->TexSamplerState);
                         //Set the Input Layout
                         d3dDevCon->IASetInputLayout(vertLayout_light);
 
                         d3dDevCon->VSSetShader(VS_light, 0, 0);
-                        d3dDevCon->PSSetShader(PS_clip_LT, 0, 0);
+                        d3dDevCon->PSSetShader(PS_light, 0, 0);
                     }
-                    else
-                    {
+                    else {
+
                         d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex, &stride_Tex, &offset);
 
                         //Set the Input Layout
                         d3dDevCon->IASetInputLayout(vertLayout_tex);
 
                         d3dDevCon->VSSetShader(VS_tex, 0, 0);
-                        d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
-                    }
-                }
-
-                else if (fcube->ActivateLight)
-                {
-                    ///THATS FOR A DINAMIC LIGHT, IN CASE OF A CONSTANT LIGHT I COULD JUST EXECUTE THIS ONCE AND NOT EVERY TIME I RENDER THE SCENE
-                    for (int x = 0; x < 4; x++)
-                    {
-                        constbuffPerFrame.light[x] = lighT[x];
+                        d3dDevCon->PSSetShader(PS_tex, 0, 0);
                     }
 
-                    d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
-                    d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
-
-                    d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex_light, &stride_Tex_light, &offset);
                     d3dDevCon->PSSetShaderResources(0, 1, &fcube->Texture);
                     d3dDevCon->PSSetSamplers(0, 1, &fcube->TexSamplerState);
-                    //Set the Input Layout
-                    d3dDevCon->IASetInputLayout(vertLayout_light);
-
-                    d3dDevCon->VSSetShader(VS_light, 0, 0);
-                    d3dDevCon->PSSetShader(PS_light, 0, 0);
-                }
-                else {
-
-                    d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex, &stride_Tex, &offset);
-
-                    //Set the Input Layout
-                    d3dDevCon->IASetInputLayout(vertLayout_tex);
-
-                    d3dDevCon->VSSetShader(VS_tex, 0, 0);
-                    d3dDevCon->PSSetShader(PS_tex, 0, 0);
                 }
 
-                d3dDevCon->PSSetShaderResources(0, 1, &fcube->Texture);
-                d3dDevCon->PSSetSamplers(0, 1, &fcube->TexSamplerState);
+                else
+                {
+                    CreateVertexBuffer_Colored(fcube->color_presets, fcube->color.x, fcube->color.y, fcube->color.z);
+                    //Set the Input Layout
+                    d3dDevCon->IASetInputLayout(vertLayout_cor);
+
+                    d3dDevCon->VSSetShader(VS_cor, 0, 0);
+                    d3dDevCon->PSSetShader(PS_cor, 0, 0);
+                }
+
+
+                WVP = fcube->modelWorld * camView * camProjection;
+                cbPerObj.World = XMMatrixTranspose(fcube->modelWorld);
+                cbPerObj.WVP = XMMatrixTranspose(WVP);
+                d3dDevCon->UpdateSubresource(cbPerObjectBuffer, 0, NULL, &cbPerObj, 0, 0);
+                d3dDevCon->VSSetConstantBuffers(0, 1, &cbPerObjectBuffer);
+                d3dDevCon->OMSetDepthStencilState(DSLess, 0);
+
+                if (fcube->ActivateTransparenry) RenderTransparent();
+                if (fcube->ActivateWireframe) RenderWireframe();
+                if ((fcube->opaque) || (fcube->ActivatePixelcliping)) RenderOpaque();
             }
-
+            if (fcube->next != NULL)
+            {
+                fcube = fcube->next;
+            }
             else
             {
-                CreateVertexBuffer_Colored(fcube->color_presets, fcube->color.x, fcube->color.y, fcube->color.z);
-                //Set the Input Layout
-                d3dDevCon->IASetInputLayout(vertLayout_cor);
-
-                d3dDevCon->VSSetShader(VS_cor, 0, 0);
-                d3dDevCon->PSSetShader(PS_cor, 0, 0);
+                break;
             }
-
-
-            WVP = fcube->modelWorld * camView * camProjection;
-            cbPerObj.World = XMMatrixTranspose(fcube->modelWorld);
-            cbPerObj.WVP = XMMatrixTranspose(WVP);
-            d3dDevCon->UpdateSubresource(cbPerObjectBuffer, 0, NULL, &cbPerObj, 0, 0);
-            d3dDevCon->VSSetConstantBuffers(0, 1, &cbPerObjectBuffer);
-            d3dDevCon->OMSetDepthStencilState(DSLess, 0);
-
-            if (fcube->ActivateTransparenry) RenderTransparent();
-            if (fcube->ActivateWireframe) RenderWireframe();
-            if ((fcube->opaque) || (fcube->ActivatePixelcliping)) RenderOpaque();
-        }
-        if (fcube->next != NULL)
-        {
-            fcube = fcube->next;
-        }
-        else
-        {
-            break;
-        }
+        }  
     }
     if (flag == true)
     {
         cout << endl;
     }
-}
-
-ID3D11Buffer* CubeS::getIndexBuffer()
-{
-    return CubeIndexBuffer;
-}
-
-ID3D11Buffer* CubeS::getVertBuffer(const wchar_t* type)
-{
-    if (type == L"texture")
-    {
-        return CubeVertBuffer_Tex;
-    }
-    else if (type == L"light")
-    {
-        return CubeVertBuffer_Tex_light;
-    }
-    else if (type == L"color")
-    {
-        return CubeVertBuffer_Color;
-    }
-    else return NULL;
-
 }
 
 void CubeS::RenderTransparent()

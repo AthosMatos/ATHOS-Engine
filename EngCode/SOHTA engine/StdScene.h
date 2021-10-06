@@ -5,6 +5,12 @@
 #include "DirectInput.h"
 #include "Sky.h"
 #include "Image.h"
+#include "Text2D.h"
+
+#define pressflag_cam pressflag_vector[0]
+#define pressflag_fpsshow pressflag_vector[1]
+
+using namespace std;
 
 class StdScene 
 {
@@ -18,14 +24,30 @@ public:
 	void ShowMicePosDebug(bool show);
 
 private:
+	void Debug_info();
+
 	Image* image;
 	CubeS* cubes;
+	Camera* camera;
 	PL_Cubes* Lightcubes;
+
 	Ground* GridGround;
 	Sky* sky;
 	float rot=0;
 	DirectInput DI;
 	int sens = 10;
+	Text2D* TXT;
+
+	const wchar_t* cam;
+
+	bool test = false;
+	bool render = true;
+	bool pressflag = false;
+
+private:
+	double fps;
+	bool show_fps;
+	bool pressflag_vector[100];
 
 };
 

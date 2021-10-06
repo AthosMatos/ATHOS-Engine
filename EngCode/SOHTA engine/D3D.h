@@ -3,7 +3,7 @@
 #include "DirectInput.h"
 #include "VideoConfig.h"
 
-class D3D : private VideoConfig
+class D3D : VideoConfig
 {
 public:
 	D3D();

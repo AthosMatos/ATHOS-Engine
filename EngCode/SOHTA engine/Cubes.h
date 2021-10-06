@@ -20,16 +20,13 @@ public:
 		XMVECTOR rotaxis, float rot,
 		bool ActivateTranslation, XMFLOAT3 pos,
 		bool ActivateScale, float size, 
-		bool transparent, bool wireframe, bool opaque,bool pixelcliping,bool light);
+		bool transparent, bool wireframe, bool opaque,bool pixelcliping,bool light,bool render);
 
 	XMMATRIX GetWorld(const wchar_t* CubeName);
 	void ChangeColor(const wchar_t* CubeName, XMFLOAT3 color);
 
 	void RenderCube(const wchar_t* CubeName);
 	void RenderGroup(const wchar_t* GroupName);
-
-	ID3D11Buffer* getIndexBuffer();
-	ID3D11Buffer* getVertBuffer(const wchar_t* type);
 
 	void Release();
 

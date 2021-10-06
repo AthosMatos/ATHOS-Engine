@@ -16,9 +16,6 @@
     <Filter Include="App\Graphics\3D">
       <UniqueIdentifier>{1f86ed8b-a73a-4b63-9098-a6d6e8e80c35}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\Graphics\2D\Text">
-      <UniqueIdentifier>{31f179f0-1729-4d76-997e-4bb68ddaa3cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="App\Timer">
       <UniqueIdentifier>{d03b2809-fda3-4d09-bcd2-1f4ed46e843c}</UniqueIdentifier>
     </Filter>
@@ -33,12 +30,6 @@
     </Filter>
     <Filter Include="App\Graphics\3D\Geometry\Cubes">
       <UniqueIdentifier>{18ab1d97-e005-43d0-b61a-08f48698291c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="App\Graphics\3D\Geometry\Ground">
-      <UniqueIdentifier>{efad547e-de00-476a-9368-2def3318f523}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="App\Graphics\3D\Geometry\Sky">
-      <UniqueIdentifier>{63aa0523-8306-4ac0-976b-31158a7f34c7}</UniqueIdentifier>
     </Filter>
     <Filter Include="App\Graphics\3D\Light">
       <UniqueIdentifier>{5069336b-7c9c-4212-bade-147e2e18b796}</UniqueIdentifier>
@@ -64,8 +55,26 @@
     <Filter Include="App\VideoConfig">
       <UniqueIdentifier>{ed4712ef-25ec-4f84-8fe4-94b943c42ee6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\Graphics\2D\Image">
+    <Filter Include="App\Graphics\3D\Elements">
+      <UniqueIdentifier>{25838227-3ac7-45c8-9087-89509b50cbd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Elements\Ground">
+      <UniqueIdentifier>{efad547e-de00-476a-9368-2def3318f523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Elements\Sky">
+      <UniqueIdentifier>{63aa0523-8306-4ac0-976b-31158a7f34c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D">
+      <UniqueIdentifier>{07393329-4985-4658-a14c-88769fcff11f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools">
+      <UniqueIdentifier>{f71f2ef5-c69c-448d-95a8-445bf5bf3ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Image">
       <UniqueIdentifier>{94c94706-2dc3-44a5-a7d4-7ee5467f7f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Text">
+      <UniqueIdentifier>{31f179f0-1729-4d76-997e-4bb68ddaa3cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +104,7 @@
       <Filter>App\Input</Filter>
     </ClCompile>
     <ClCompile Include="Ground.cpp">
-      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+      <Filter>App\Graphics\3D\Elements\Ground</Filter>
     </ClCompile>
     <ClCompile Include="StdScene.cpp">
       <Filter>App\Graphics\Scenes</Filter>
@@ -104,7 +113,7 @@
       <Filter>App\Graphics\3D\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="Sky.cpp">
-      <Filter>App\Graphics\3D\Geometry\Sky</Filter>
+      <Filter>App\Graphics\3D\Elements\Sky</Filter>
     </ClCompile>
     <ClCompile Include="Shaders.cpp">
       <Filter>App\Graphics\3D\Shaders</Filter>
@@ -118,26 +127,20 @@
     <ClCompile Include="StaticDeclarations_Camera.cpp">
       <Filter>App\Graphics\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="VideoConfig.cpp">
-      <Filter>App\VideoConfig</Filter>
-    </ClCompile>
     <ClCompile Include="StaticDeclarations_D3D.cpp">
       <Filter>App\Graphics\3D</Filter>
     </ClCompile>
     <ClCompile Include="Text2D.cpp">
-      <Filter>App\Graphics\2D\Text</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Text</Filter>
     </ClCompile>
     <ClCompile Include="PL_Cubes.cpp">
       <Filter>App\Graphics\3D\Light\PointLights\LightCubes</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
-      <Filter>App\Graphics\2D\Image</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Image</Filter>
     </ClCompile>
     <ClCompile Include="ImageStrct.h">
-      <Filter>App\Graphics\2D\Image</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticDeclarations_Text2D.cpp">
-      <Filter>App\Graphics\2D\Text</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Image</Filter>
     </ClCompile>
     <ClCompile Include="StaticDeclarations_D2D.cpp">
       <Filter>App\Graphics\2D</Filter>
@@ -146,10 +149,17 @@
       <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
     </ClCompile>
     <ClCompile Include="StaticDeclarations_Ground.cpp">
-      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+      <Filter>App\Graphics\3D\Elements\Ground</Filter>
     </ClCompile>
     <ClCompile Include="StaticDeclarations_Image.cpp">
-      <Filter>App\Graphics\2D\Image</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoConfig.cpp">
+      <Filter>App\VideoConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="RQD2D.cpp" />
+    <ClCompile Include="RenderQueue_2D.cpp">
+      <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +186,7 @@
       <Filter>App\Input</Filter>
     </ClInclude>
     <ClInclude Include="Ground.h">
-      <Filter>App\Graphics\3D\Geometry\Ground</Filter>
+      <Filter>App\Graphics\3D\Elements\Ground</Filter>
     </ClInclude>
     <ClInclude Include="StdScene.h">
       <Filter>App\Graphics\Scenes</Filter>
@@ -185,7 +195,7 @@
       <Filter>App\Graphics\3D\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="Sky.h">
-      <Filter>App\Graphics\3D\Geometry\Sky</Filter>
+      <Filter>App\Graphics\3D\Elements\Sky</Filter>
     </ClInclude>
     <ClInclude Include="Cubes.h">
       <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
@@ -213,19 +223,23 @@
       <Filter>App\VideoConfig</Filter>
     </ClInclude>
     <ClInclude Include="Text2D.h">
-      <Filter>App\Graphics\2D\Text</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Text</Filter>
     </ClInclude>
     <ClInclude Include="PL_Cubes.h">
       <Filter>App\Graphics\3D\Light\PointLights\LightCubes</Filter>
     </ClInclude>
     <ClInclude Include="Image.h">
-      <Filter>App\Graphics\2D\Image</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Image</Filter>
     </ClInclude>
     <ClInclude Include="Text2DStrct.h">
-      <Filter>App\Graphics\2D\Text</Filter>
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Text</Filter>
     </ClInclude>
     <ClInclude Include="ModelStrct.h">
       <Filter>App\Graphics\3D\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="RQD2D.h" />
+    <ClInclude Include="RenderQueue_2D.h">
+      <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

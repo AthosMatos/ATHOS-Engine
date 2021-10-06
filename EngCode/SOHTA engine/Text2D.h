@@ -1,30 +1,23 @@
 #pragma once
-#include "Text2DStrct.h"
+#include "RenderQueue_2D.h"
 
-class Text2D : D2D 
+using namespace std;
+
+class Text2D : RenderQueue_2D 
 {
-public:
-	Text2D();
-	Text2D(nullptr_t);
 
 public:
 	void Create(const wchar_t* ID);
 
-	void Select(const wchar_t* ID);
+	void Update(const wchar_t* ID, const wchar_t* text, float TextSize, int OffsetLeftX, int OffsetTopY, D2D1::ColorF color, float Transparency);
+	void Update(const wchar_t* ID, const wchar_t* text, int fps, float TextSize, int OffsetLeftX, int OffsetTopY, D2D1::ColorF color, float Transparency);
 
-	void Update(const wchar_t* ID, float TextSize, int OffsetLeftX, int OffsetTopY, D2D1::ColorF color);
-	void Update(float TextSize, int OffsetLeftX, int OffsetTopY, D2D1::ColorF color);
+	void Render(const wchar_t* ID, bool state);
 
-	void Render(const wchar_t* ID, const wchar_t* text);//render specific textbox
-	void Render(const wchar_t* text);//render select textbox
-	
 	void Release();
 
 private:
-	void StdFontStyle(TextBox* FT);
+	void StdFontStyle(TextBox& FT);
 
-private:	
-	static TextBox* TB;
-	static const wchar_t* SelectedTextBox;
 };
 

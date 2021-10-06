@@ -3,7 +3,7 @@
 #include "DirectInput.h"
 #include "VideoConfig.h"
 
-class Win : private VideoConfig
+class Win : VideoConfig
 {
 public:
 	Win();

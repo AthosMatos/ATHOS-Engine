@@ -8,56 +8,31 @@ C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11):
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Graphics.cpp(4,1): warning C4005: 'pressflag_cam': macro redefinition
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.h(10): message : see previous definition of 'pressflag_cam'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Graphics.cpp(5,1): warning C4005: 'pressflag_fpsshow': macro redefinition
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.h(11): message : see previous definition of 'pressflag_fpsshow'
+  Image.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(6,13): warning C4552: '-': result of expression not used
   Main.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-  Cubes.cpp
+  RenderQueue_2D.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2575,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
-          with
-          [
-              _Elem=char
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
-          with
-          [
-              _Iter=wchar_t *
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
-          with
-          [
-              _Iter=wchar_t *
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
-          with
-          [
-              _Iter=wchar_t *
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
-          with
-          [
-              _Iter=wchar_t *
-          ]
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(504): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
-          with
-          [
-              _Elem=wchar_t,
-              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
-              _Alloc=std::allocator<char>
-          ]
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(504): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
-          with
-          [
-              _Elem=wchar_t,
-              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
-              _Alloc=std::allocator<char>
-          ]
-  StaticDeclarations_Cubes.cpp
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(17,22): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(23,27): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(50,89): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(68,88): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  StaticDeclarations_Image.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
@@ -67,7 +42,23 @@ C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11):
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
 C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(33,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(136,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(63,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(73,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(183,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Text2D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,50): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,44): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,50): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,44): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(138,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(138,33): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
   Generating Code...
   SOHTA engine.vcxproj -> C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe

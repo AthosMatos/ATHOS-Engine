@@ -1,13 +1,183 @@
-﻿  StdScene.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
-C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
-C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\SOHTA engine\StdScene.cpp(31,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\SOHTA engine\StdScene.cpp(130,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  App.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Camera.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  D2D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  D3D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  DirectInput.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Graphics.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Graphics.cpp(4,1): warning C4005: 'pressflag_cam': macro redefinition
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.h(10): message : see previous definition of 'pressflag_cam'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Graphics.cpp(5,1): warning C4005: 'pressflag_fpsshow': macro redefinition
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.h(11): message : see previous definition of 'pressflag_fpsshow'
+  Ground.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Image.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(6,13): warning C4552: '-': result of expression not used
+  ImageStrct.h
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  PL_Cubes.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Main.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Geometry.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Cubes.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2575,23): warning C4244: 'argument': conversion from 'wchar_t' to 'const _Elem', possible loss of data
+          with
+          [
+              _Elem=char
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2586): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(_Iter,const _Iter,std::input_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\include\xstring(2566): message : see reference to function template instantiation 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<wchar_t*>(const _Iter,const _Iter,std::forward_iterator_tag)' being compiled
+          with
+          [
+              _Iter=wchar_t *
+          ]
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(504): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Cubes.cpp(504): message : see reference to function template instantiation 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,0>(_Iter,_Iter,const _Alloc &)' being compiled
+          with
+          [
+              _Elem=wchar_t,
+              _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>,
+              _Alloc=std::allocator<char>
+          ]
+  RenderQueue_2D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(18,22): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(44,27): warning C4834: discarding return value of function with 'nodiscard' attribute
+  RQD2D.cpp
+  Shaders.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Sky.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(53,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(55,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(57,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(59,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(93,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(106,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(108,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Sky.cpp(132,25): warning C4018: '<': signed/unsigned mismatch
+  StaticDeclarations_Ground.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  StaticDeclarations_Cubes.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  StaticDeclarations_D2D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  Compiling...
+  StaticDeclarations_Image.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+  StaticDeclarations_Camera.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  StaticDeclarations_D3D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  StaticDeclarations_Shaders.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  StdScene.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(63,38): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(73,26): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(183,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Text2D.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,50): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,44): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,57): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,50): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,44): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(106,38): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(138,40): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(138,33): warning C4244: 'argument': conversion from 'int' to 'FLOAT', possible loss of data
+  Timer.cpp
+C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Timer.cpp(31,21): warning C4244: '=': conversion from 'float' to '__int64', possible loss of data
+  VideoConfig.cpp
+  win.cpp
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   Generating code
-  1 of 505 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+  All 817 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  SOHTA engine.vcxproj -> C:\Users\SAI DO MEU PC PEXTE\Documents\engine\EngCode\x64\Release\SOHTA engine.exe
+  SOHTA engine.vcxproj -> C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Release\SOHTA engine.exe

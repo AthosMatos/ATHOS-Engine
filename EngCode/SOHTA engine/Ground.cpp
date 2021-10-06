@@ -89,10 +89,6 @@ void Ground::RenderGround(const wchar_t* GrdName)
     d3dDevCon->VSSetShader(VS_tex, 0, 0);
     d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
 
-    //constbuffPerFrame.light = lighT;
-   // d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
-   // d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
-
     d3dDevCon->PSSetShaderResources(0, 1, &grd->Texture);
     d3dDevCon->PSSetSamplers(0, 1, &grd->TexSamplerState);
 
@@ -159,10 +155,14 @@ void Ground::CreateVertexBuffer_Grd()
 {
     Textured_Vertex v[] =
     {
-        Textured_Vertex(-1.0f, 1.0f, -1.0f, 0.0f, 2.0f * grd->size),
+        // Textured_Vertex(-1.0f, 1.0f, -1.0f, 0.0f, 2.0f * grd->size),
+       //Textured_Vertex(-1.0f, 1.0f,  1.0f, 0.0f, 0.0f),
+       //Textured_Vertex(1.0f, 1.0f,  1.0f, 2.0f * grd->size, 0.0f),
+       //Textured_Vertex(1.0f, 1.0f, -1.0f, 2.0f * grd->size, 2.0f * grd->size),
+        Textured_Vertex(-1.0f, 1.0f, -1.0f, 0.0f, 1.0f),
         Textured_Vertex(-1.0f, 1.0f,  1.0f, 0.0f, 0.0f),
-        Textured_Vertex(1.0f, 1.0f,  1.0f, 2.0f * grd->size, 0.0f),
-        Textured_Vertex(1.0f, 1.0f, -1.0f, 2.0f * grd->size, 2.0f * grd->size),
+        Textured_Vertex(1.0f, 1.0f,  1.0f, 1.0f , 0.0f),
+        Textured_Vertex(1.0f, 1.0f, -1.0f, 1.0f , 1.0f),
     };
 
     D3D11_BUFFER_DESC vertexBufferDesc;
@@ -193,7 +193,7 @@ void Ground::CreateTexture(Model* grd, const wchar_t* texPath)
 
     D3D11_SAMPLER_DESC sampDesc;
     ZeroMemory(&sampDesc, sizeof(sampDesc));
-    sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
+    sampDesc.Filter = D3D11_FILTER_ANISOTROPIC;
     sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
     sampDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
     sampDesc.AddressW = D3D11_TEXTURE_ADDRESS_WRAP;

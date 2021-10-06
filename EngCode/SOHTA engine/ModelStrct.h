@@ -5,31 +5,32 @@ struct Model
 {
 	//STD MODEL PROPRETIES
 	const wchar_t* name;
-	const wchar_t* GroupName;
+	const wchar_t* GroupName = L"nogroup";
 
 	XMFLOAT3 color;
-	int color_presets;
+	int color_presets = 0; //Colorfull cube
 
 	XMMATRIX modelWorld;
 	XMMATRIX Rotation;
 	XMMATRIX Scale;
 	XMMATRIX Translation;
 
-	bool ActivateTransparenry;
-	bool queued;
-	bool ActivateWireframe;
-	bool opaque;
-	bool ActivatePixelcliping;
-	bool ActivateLight;
+	bool render = true;
+	bool ActivateTransparenry = false;
+	bool queued = false;
+	bool ActivateWireframe = false;
+	bool opaque = true;
+	bool ActivatePixelcliping = false;
+	bool ActivateLight = true;
 
 	float debug_disfcam;
-	bool textured;
+	bool textured = false;
 	ID3D11ShaderResourceView* Texture;
 	ID3D11SamplerState* TexSamplerState;
 
-	bool ActivateTranslation;
-	bool ActivateScale;
-	int rot;
+	bool ActivateTranslation = true;
+	bool ActivateScale = true;
+	int rot = 0;
 
 	Model* next;
 	Model* prev;

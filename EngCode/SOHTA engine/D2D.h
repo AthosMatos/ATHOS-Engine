@@ -4,7 +4,7 @@
 #include "D3D.h"
 #include "VideoConfig.h"
 
-class D2D : public VideoConfig
+class D2D : protected VideoConfig
 {
 public:
 	D2D();
