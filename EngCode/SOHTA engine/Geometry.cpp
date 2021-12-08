@@ -29,7 +29,7 @@ void Geometry::Release()
 {
     if (cbPerObjectBuffer) cbPerObjectBuffer->Release();
     if (cbPerFrameBuffer) cbPerFrameBuffer->Release();
-    if (RS_Wireframe) try { RS_Wireframe->Release(); } catch(...){}
+    if (RS_Wireframe) RS_Wireframe->Release(); 
     if (BS_Transparent) BS_Transparent->Release();
     if (RS_Transparent1)RS_Transparent1->Release();
     if (RS_Transparent2) RS_Transparent2->Release();

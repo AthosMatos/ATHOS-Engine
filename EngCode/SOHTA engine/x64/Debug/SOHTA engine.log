@@ -1,6 +1,9 @@
-﻿  Geometry.cpp
+﻿  StdScene.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
-C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-  SOHTA engine.vcxproj -> C:\Users\Athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(63,38): warning C4244: 'argumento': conversão de 'double' para 'int', possível perda de dados
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(73,26): warning C4244: '+=': conversão de 'double' para 'float', possível perda de dados
+C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(182,17): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
+  SOHTA engine.vcxproj -> C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
