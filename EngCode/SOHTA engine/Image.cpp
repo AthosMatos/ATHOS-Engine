@@ -33,9 +33,10 @@ void Image::Load(const wchar_t* name, const wchar_t* filePath)
 	RenderOrder.insert(RenderOrder.begin(), name);
 }
 
-void Image::Update(const wchar_t* name, float Transparency)
+void Image::Update(const wchar_t* name, float Transparency, int left, int top, int right, int bottom)
 {
 	ImagesData[name].transparency = Transparency;
+	ImagesData[name].rect = D2D1::RectF(left, top, right, bottom);
 }
 
 void Image::Draw(const wchar_t* name, bool state)

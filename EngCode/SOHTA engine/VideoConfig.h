@@ -6,4 +6,6 @@ protected:
 	static int V_res;
 	static bool Windowed;
 	static bool Enable4xMSAA;
+	static bool MenuOpen;
+
 };

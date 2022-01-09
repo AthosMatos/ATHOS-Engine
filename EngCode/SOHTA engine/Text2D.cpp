@@ -64,6 +64,47 @@ void Text2D::Update(const wchar_t* ID, const wchar_t* text, float TextSize, int 
 
 }
 
+void Text2D::Update(const wchar_t* ID, const wchar_t* text, float TextSize, int left, int top, int right, int bottom, D2D1::ColorF color, float Transparency)
+{
+    if (left > H_res)
+    {
+        left = H_res;
+    }
+    if (top > V_res)
+    {
+        top = V_res;
+    }
+
+    TextsData[ID].ActualText = text;
+    TextsData[ID].transparency = Transparency;
+
+    HRESULT hr;
+
+    if (TextSize != TextsData[ID].size)
+    {
+        hr = DWriteFactory->CreateTextFormat(
+            L"Unispace",
+            NULL,
+            DWRITE_FONT_WEIGHT_BOLD,
+            DWRITE_FONT_STYLE_NORMAL,
+            DWRITE_FONT_STRETCH_NORMAL,
+            TextSize,
+            L"en-us",
+            &TextsData[ID].TextFormat
+        );
+
+        TextsData[ID].size = TextSize;
+
+        hr = TextsData[ID].TextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING);
+        hr = TextsData[ID].TextFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_NEAR);
+    }
+
+
+    D2DRenderTarget->CreateSolidColorBrush(D2D1::ColorF(color), &TextsData[ID].Brush);
+
+    TextsData[ID].rect = D2D1::RectF(left, top, right, bottom);
+}
+
 void Text2D::Update(const wchar_t* ID, const wchar_t* text, int fps, float TextSize, int posX, int posY, D2D1::ColorF color, float Transparency)
 {
     if (posX > H_res)
@@ -106,6 +147,48 @@ void Text2D::Update(const wchar_t* ID, const wchar_t* text, int fps, float TextS
     TextsData[ID].rect = D2D1::RectF(posX, posY, H_res, V_res);
 }
 
+void Text2D::Update(const wchar_t* ID, const wchar_t* text, int fps, float TextSize, int left, int top, int right, int bottom, D2D1::ColorF color, float Transparency)
+{
+    if (left > H_res)
+    {
+        left = H_res;
+    }
+    if (top > V_res)
+    {
+        top = V_res;
+    }
+
+    TextsData[ID].ActualText = text;
+    TextsData[ID].fps = fps;
+    TextsData[ID].transparency = Transparency;
+
+    HRESULT hr;
+
+    if (TextSize != TextsData[ID].size)
+    {
+        hr = DWriteFactory->CreateTextFormat(
+            L"Unispace",
+            NULL,
+            DWRITE_FONT_WEIGHT_BOLD,
+            DWRITE_FONT_STYLE_NORMAL,
+            DWRITE_FONT_STRETCH_NORMAL,
+            TextSize,
+            L"en-us",
+            &TextsData[ID].TextFormat
+        );
+
+        TextsData[ID].size = TextSize;
+
+        hr = TextsData[ID].TextFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_LEADING);
+        hr = TextsData[ID].TextFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_NEAR);
+    }
+
+
+    D2DRenderTarget->CreateSolidColorBrush(D2D1::ColorF(color), &TextsData[ID].Brush);
+
+    TextsData[ID].rect = D2D1::RectF(left, top, right, bottom);
+}
+
 void Text2D::Render(const wchar_t* ID, bool state)
 {
     TextsData[ID].render = state;
@@ -114,7 +197,7 @@ void Text2D::Render(const wchar_t* ID, bool state)
 
 void Text2D::Release()
 {
-    
+    TextsData.clear();
 }
 
 void Text2D::StdFontStyle(TextBox& FT)

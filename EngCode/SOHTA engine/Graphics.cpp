@@ -1,7 +1,7 @@
 #include "Graphics.h"
 #include <string.h>
 
-void Graphics::InitGfx(HWND hwnd)
+void Graphics::init(HWND hwnd)
 {
     cout << "GRAPHICS STARTED\n";
 
@@ -22,7 +22,7 @@ void Graphics::InitGfx(HWND hwnd)
     cout << "GRAPHICS LOADED\n";
 }
 
-void Graphics::LoadScene()
+void Graphics::startScene()
 { 
     fistscene->LoadScene(); 
 
@@ -31,11 +31,17 @@ void Graphics::LoadScene()
                         0,
                         0,
                         0);
+
 }
+
+void Graphics::loadScene(const wchar_t* name)
+{
+}
+
 
 void Graphics::Update(double FrameTime, double FPS)
 {
-    Input();
+    input();
     fistscene->SceneInput(FrameTime); 
     fistscene->UpdateScene(FrameTime,FPS);
 }
@@ -68,7 +74,7 @@ void Graphics::Release()
     if (RQ2D)RQ2D->Release();
 }
 
-void Graphics::Input()
+void Graphics::input()
 {
  
 

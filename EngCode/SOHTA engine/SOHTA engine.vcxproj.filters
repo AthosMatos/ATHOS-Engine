@@ -76,6 +76,12 @@
     <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Text">
       <UniqueIdentifier>{31f179f0-1729-4d76-997e-4bb68ddaa3cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Shapes">
+      <UniqueIdentifier>{20a5594b-c879-422d-8492-9970d24b4507}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides">
+      <UniqueIdentifier>{6a1ff5d0-dc13-478a-af97-2cc0adb08063}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win.cpp">
@@ -161,6 +167,9 @@
     <ClCompile Include="RenderQueue_2D.cpp">
       <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
     </ClCompile>
+    <ClCompile Include="4sides.cpp">
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win.h">
@@ -240,6 +249,9 @@
     <ClInclude Include="RQD2D.h" />
     <ClInclude Include="RenderQueue_2D.h">
       <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
+    </ClInclude>
+    <ClInclude Include="4sides.h">
+      <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

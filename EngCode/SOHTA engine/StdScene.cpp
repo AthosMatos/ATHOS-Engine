@@ -65,7 +65,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
 
     TXT->Update(L"cam", cam, 30.0f, 0, 0, D2D1::ColorF::Red, 0);
 
-    image->Update(L"IMG_1", 0.5f);
+    image->Update(L"IMG_1", 0.5f,0,0,400,400);
 
     camera->Update(cam);
 
@@ -134,7 +134,6 @@ void StdScene::UpdateScene(double frametime, double FPS)
                         0.0f,//y
                         -5.0f),//z
         true, 1.0f, true, false, true, true, false, true);
-        
 }
 
 void StdScene::Renderscene()

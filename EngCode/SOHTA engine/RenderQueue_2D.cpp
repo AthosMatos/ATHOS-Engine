@@ -20,7 +20,7 @@ void RenderQueue_2D::Render()
         catch (const std::out_of_range&) {
             try
             {
-                ImagesData.at(RenderOrder[i]); // vector::at throws an out-of-range  
+                ImagesData.at(RenderOrder[i]); 
                 ImageRender(i);
                
             }
@@ -48,7 +48,7 @@ void RenderQueue_2D::ImageRender(int i)
     {
         D2DRenderTarget->DrawBitmap(
             ImagesData[RenderOrder[i]].bmp,
-            D2D1::RectF(0.0f, 0.0f, ImagesData[RenderOrder[i]].bmp->GetSize().width, ImagesData[RenderOrder[i]].bmp->GetSize().height),
+            ImagesData[RenderOrder[i]].rect,
             1.0f,
             D2D1_BITMAP_INTERPOLATION_MODE::D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
             D2D1::RectF(0.0f, 0.0f, ImagesData[RenderOrder[i]].bmp->GetSize().width, ImagesData[RenderOrder[i]].bmp->GetSize().height)

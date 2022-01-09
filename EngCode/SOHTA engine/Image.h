@@ -9,7 +9,7 @@ public:
 
 public:
 	void Load(const wchar_t* name, const wchar_t* filePath);
-	void Update(const wchar_t* name, float Transparency);
+	void Update(const wchar_t* name, float Transparency, int left, int top, int right, int bottom);
 	void Draw(const wchar_t* name, bool state);
 	void MoveLayerUp(int amount);
 	void MoveLayerDown(int amount);

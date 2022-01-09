@@ -13,14 +13,15 @@
 class Graphics : VideoConfig
 {
 public:
-	void InitGfx(HWND hwnd);
-	void LoadScene();
+	void init(HWND hwnd);
+	void startScene();
+	void loadScene(const wchar_t* name);
 	void Update(double FrameTime, double FPS);
 	void Render();
 	void Release();
 	
 private:
-	void Input();
+	void input();
 	bool InitSharedScreen(IDXGIAdapter1* Adapter);
 
 private:

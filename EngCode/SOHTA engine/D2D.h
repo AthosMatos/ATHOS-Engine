@@ -14,7 +14,7 @@ public:
 	void UpdateClassResources(Geometry* obj, D3D* d3d);
 	void UpdateClassResources(IDXGIKeyedMutex* keyedMutex11, IDXGIKeyedMutex* keyedMutex10);
 
-	void SetRenderArea(ID3D11Texture2D* sharedTex11,float x0, float x, float y0, float y);
+	void SetRenderArea(ID3D11Texture2D* sharedTex11,float left, float right, float top, float bottom);
 	void CreateDWriteFactory();
 	void ClearScreen();
 	void Release();

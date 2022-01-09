@@ -150,6 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="4sides.cpp" />
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="D2D.cpp" />
@@ -181,6 +182,7 @@
     <ClCompile Include="win.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="4sides.h" />
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraStrct.h" />

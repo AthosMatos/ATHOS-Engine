@@ -14,6 +14,7 @@ public:
 protected:
 	static map <const wchar_t*, TextBox> TextsData;
 	static map <const wchar_t*, Images> ImagesData;
+	static map <const wchar_t*, Images> ShapesData;
 
 	static vector <const wchar_t*> RenderOrder;
 
