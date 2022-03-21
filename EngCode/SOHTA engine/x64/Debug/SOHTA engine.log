@@ -1,77 +1,8 @@
-﻿  App.cpp
+﻿  StdScene.cpp
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  Graphics.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  Image.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(6,13): warning C4552: '-': o resultado da expressão não é usado
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(39,56): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(39,49): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(39,44): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Image.cpp(39,38): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-  ImageStrct.h
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  Main.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  RenderQueue_2D.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(17,22): warning C4834: descartando o valor retornado da função com o atributo 'nodiscard'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(23,27): warning C4834: descartando o valor retornado da função com o atributo 'nodiscard'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(57,89): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\RenderQueue_2D.cpp(75,88): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
-  StaticDeclarations_Image.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-  StdScene.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(63,38): warning C4244: 'argumento': conversão de 'double' para 'int', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(73,26): warning C4244: '+=': conversão de 'double' para 'float', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\StdScene.cpp(182,17): warning C4244: 'inicializando': conversão de 'double' para 'float', possível perda de dados
-  Text2D.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Geometry.h(7,28): warning C4584: 'Geometry': classe base 'D3D' já é uma classe base de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\D3D.h(6): message : consulte a declaração de 'D3D'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Shaders.h(11): message : consulte a declaração de 'Shaders'
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,57): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,50): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,44): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(63,38): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(105,56): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(105,49): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(105,44): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(105,38): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(147,57): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(147,50): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(147,44): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(147,38): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(189,56): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(189,49): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(189,44): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(189,38): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(221,40): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\SOHTA engine\Text2D.cpp(221,33): warning C4244: 'argumento': conversão de 'int' para 'FLOAT', possível perda de dados
-  Gerando Código...
-  SOHTA engine.vcxproj -> C:\Users\athos\Documents\GitHub\SOHTA-Engine\EngCode\x64\Debug\SOHTA engine.exe
+C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\Geometry.h(8,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
+C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
+C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
+C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\StdScene.cpp(82,16): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\StdScene.cpp(217,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  SOHTA engine.vcxproj -> C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\x64\Debug\SOHTA engine.exe

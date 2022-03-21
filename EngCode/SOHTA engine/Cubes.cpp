@@ -517,7 +517,7 @@ void CubeS::RenderCube(const wchar_t* CubeName)
         {
             if (fcube->ActivateLight)
             {
-                for (int x = 0; x < 4; x++)
+                for (int x = 0; x < lighT.size(); x++)
                 {
                     constbuffPerFrame.light[x] = lighT[x];
                 }
@@ -548,7 +548,7 @@ void CubeS::RenderCube(const wchar_t* CubeName)
         else if (fcube->ActivateLight)
         {
             ///THATS FOR A DINAMIC LIGHT, IN CASE OF A CONSTANT LIGHT I COULD JUST EXECUTE THIS ONCE AND NOT EVERY TIME I RENDER THE SCENE
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < lighT.size(); x++)
             {
                 constbuffPerFrame.light[x] = lighT[x];
             }
@@ -642,7 +642,7 @@ void CubeS::RenderGroup(const wchar_t* GroupName)
                     {
                         if (fcube->ActivateLight)
                         {
-                            for (int x = 0; x < 4; x++)
+                            for (int x = 0; x < lighT.size(); x++)
                             {
                                 constbuffPerFrame.light[x] = lighT[x];
                             }
@@ -673,7 +673,7 @@ void CubeS::RenderGroup(const wchar_t* GroupName)
                     else if (fcube->ActivateLight)
                     {
                         ///THATS FOR A DINAMIC LIGHT, IN CASE OF A CONSTANT LIGHT I COULD JUST EXECUTE THIS ONCE AND NOT EVERY TIME I RENDER THE SCENE
-                        for (int x = 0; x < 4; x++)
+                        for (int x = 0; x < lighT.size(); x++)
                         {
                             constbuffPerFrame.light[x] = lighT[x];
                         }

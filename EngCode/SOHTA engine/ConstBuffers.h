@@ -1,6 +1,7 @@
 #pragma once
 #include "ShaderStrct_Light.h"
 #include "ShaderStrct_Vertex.h"
+#include <vector>
 
 struct cbPerObject
 {
@@ -10,5 +11,5 @@ struct cbPerObject
 
 struct cbPerFrame
 {
-	SLight light[10];
+	SLight light[100];
 };

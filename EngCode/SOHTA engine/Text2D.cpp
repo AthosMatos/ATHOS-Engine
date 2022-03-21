@@ -194,7 +194,6 @@ void Text2D::Render(const wchar_t* ID, bool state)
     TextsData[ID].render = state;
 }
 
-
 void Text2D::Release()
 {
     TextsData.clear();

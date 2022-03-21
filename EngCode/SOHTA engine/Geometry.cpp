@@ -8,7 +8,7 @@ cbPerFrame Geometry::constbuffPerFrame;
 ID3D11Buffer* Geometry::cbPerFrameBuffer;
 ID3D11RasterizerState* Geometry::RS_Transparent2;
 ID3D11RasterizerState* Geometry::RS_Transparent1;
-SLight Geometry::lighT[];
+vector<SLight> Geometry::lighT;
 
 XMVECTOR Geometry::rotyaxis;
 XMVECTOR Geometry::rotzaxis;
@@ -27,8 +27,8 @@ Geometry::Geometry()
 
 void Geometry::Release()
 {
-    if (cbPerObjectBuffer) cbPerObjectBuffer->Release();
     if (cbPerFrameBuffer) cbPerFrameBuffer->Release();
+    if (cbPerObjectBuffer) cbPerObjectBuffer->Release();
     if (RS_Wireframe) RS_Wireframe->Release(); 
     if (BS_Transparent) BS_Transparent->Release();
     if (RS_Transparent1)RS_Transparent1->Release();

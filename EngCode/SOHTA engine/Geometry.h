@@ -3,6 +3,7 @@
 #include "D3D.h"
 #include "Camera.h"
 #include "Shaders.h"
+#include <vector>
 
 class Geometry : protected D3D , public Camera , protected Shaders
 {
@@ -49,7 +50,8 @@ protected:
 	static ID3D11Buffer* cbPerObjectBuffer;
 	static ID3D11Buffer* cbPerFrameBuffer;
 
-	static SLight lighT[10];
+	static vector<SLight>lighT;
+
 	static cbPerFrame constbuffPerFrame;
 
 	static XMVECTOR rotyaxis;

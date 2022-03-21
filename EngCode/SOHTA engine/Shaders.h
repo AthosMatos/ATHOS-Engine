@@ -3,7 +3,7 @@
 
 #define color_shader_path L"shaders//EffectsColor.fx"
 #define texture_shader_path L"shaders//EffectsTexture.fx"
-#define light_Textured_shader_path L"shaders//EffectsLight.fx"
+#define light_Textured_shader_path L"shaders//EffectsLight.hlsl"
 #define cliped_opaque_texture_shader_path L"shaders//EffectsTextureClipped_Opaque.fx"
 #define cliped_transparent_texture_shader_path L"shaders//EffectsTextureClipped_Transparent.fx"
 

@@ -82,6 +82,9 @@
     <Filter Include="App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides">
       <UniqueIdentifier>{6a1ff5d0-dc13-478a-af97-2cc0adb08063}</UniqueIdentifier>
     </Filter>
+    <Filter Include="App\Graphics\3D\Light\SpotLight">
+      <UniqueIdentifier>{a5446d9f-87c5-4da6-8a51-e1d58a3cff13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="win.cpp">
@@ -170,6 +173,9 @@
     <ClCompile Include="4sides.cpp">
       <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides</Filter>
     </ClCompile>
+    <ClCompile Include="SpotLight.cpp">
+      <Filter>App\Graphics\3D\Light\SpotLight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="win.h">
@@ -253,6 +259,9 @@
     <ClInclude Include="4sides.h">
       <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Shapes\4sides</Filter>
     </ClInclude>
+    <ClInclude Include="Spotlight.h">
+      <Filter>App\Graphics\3D\Light\SpotLight</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SOHTA engine.rc" />
@@ -267,7 +276,7 @@
     <FxCompile Include="skyshader.fx">
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
-    <FxCompile Include="shaders\EffectsLight.fx">
+    <FxCompile Include="shaders\EffectsLight.hlsl">
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
     <FxCompile Include="shaders\EffectsTextureClipped_Transparent.fx">

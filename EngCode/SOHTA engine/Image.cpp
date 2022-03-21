@@ -28,7 +28,7 @@ void Image::Load(const wchar_t* name, const wchar_t* filePath)
 		wicconverter,
 		NULL,
 		&image.bmp);
-
+	image.render = false;
 	ImagesData.insert(pair <const wchar_t*, Images>(name, image));
 	RenderOrder.insert(RenderOrder.begin(), name);
 }

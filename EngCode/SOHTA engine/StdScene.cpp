@@ -31,33 +31,41 @@ void StdScene::LoadScene()
     cubes->CreateCube(L"C1", L"fodase", 1);
     cubes->CreateCube(L"C2", L"fodase", L"textures//texxture2.png");
     cubes->CreateCube(L"C3", L"fodase", L"textures//texxture.png");
-    cubes->CreateCube(L"C4", L"fodase", L"textures//test.png");
+    cubes->CreateCube(L"C4", L"fodase", L"textures//rocktexture.png");
     cubes->CreateCube(L"C5", L"fodase", L"textures//texxture23.png");
     cubes->CreateCube(L"C6", L"fodase", L"textures//texxture3.png");
 
-    TXT->Create(L"FPS");
-    TXT->Create(L"AlphaInfo");
-    TXT->Create(L"Info");
-    TXT->Create(L"Info2");
-    TXT->Create(L"cam");
+    //TXT->Create(L"FPS");
+    //TXT->Create(L"AlphaInfo");
+    //TXT->Create(L"Info");
+    //TXT->Create(L"Info2");
+    //TXT->Create(L"cam");
 
-    TXT->Update(L"FPS", L"FPS:", 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
-    TXT->Update(L"AlphaInfo", L"SOTHA engine Ultra_Alpha_Beta", 15.0f, 680, 520, D2D1::ColorF::White, 0);
-    TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA", 15.0f, 700, 10, D2D1::ColorF::White, 0);
+    //TXT->Update(L"FPS", L"FPS:", 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
+    //TXT->Update(L"AlphaInfo", L"SOTHA engine Ultra_Alpha_Beta", 15.0f, 680, 520, D2D1::ColorF::White, 0);
+    //TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA", 15.0f, 700, 10, D2D1::ColorF::White, 0);
 
     Lightcubes->CreateLight(L"L1");
     Lightcubes->CreateLight(L"L2");
+    Lightcubes->CreateLight(L"L3");
+    Lightcubes->CreateLight(L"L4");
+    Lightcubes->CreateLight(L"L5");
 
     GridGround->CreateGround(L"GRD", L"textures//grid3.png");
-    image->Load(L"IMG_1", L"textures//texxture2.png");
+    //image->Load(L"IMG_1", L"textures//texxture2.png");
 
     cout << "STD SCENE LOADED \n";
 }
 
 void StdScene::UpdateScene(double frametime, double FPS)
 {  
+    float lightIntensity = 0.5f;
+    float LightRange = 6.0f;
+    XMFLOAT4 AmbientIntensity = XMFLOAT4(0.05f, 0.05f, 0.05f, 1.0f);
+    
     fps = FPS;
     
+    /*
     if (show_fps)
     {
         TXT->Update(L"FPS", L"FPS:", FPS, 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
@@ -66,6 +74,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
     TXT->Update(L"cam", cam, 30.0f, 0, 0, D2D1::ColorF::Red, 0);
 
     image->Update(L"IMG_1", 0.5f,0,0,400,400);
+    */
 
     camera->Update(cam);
 
@@ -82,22 +91,46 @@ void StdScene::UpdateScene(double frametime, double FPS)
         true, 2);
 
     Lightcubes->Update(L"L1", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
-        true, XMFLOAT3(0.0f,//x
+        true, XMFLOAT3(7.0f,//x
                         0.0f,//y
-                         2.0f),//z
-        true, 0.3f,
-        6.0f, 
-        XMFLOAT3(1.0f, 1.0f, 1.0f), 4.0f,
-        XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f));
+                         5.0f),//z
+        true, 0.4f,
+        LightRange,XMFLOAT3(1.0f, 0.0f, 0.0f), lightIntensity,
+        AmbientIntensity);
 
     Lightcubes->Update(L"L2", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(13.0f,//x
                          0.0f,//y
                           5.0f),//z
         true, 0.4f,
-        6.0f, 
-        XMFLOAT3(1.0f, 0.3f, 0.5f), 6.0f,
-        XMFLOAT4(0.1f, 0.1f, 0.1f, 1.0f));
+        LightRange,XMFLOAT3(0.0f, 1.0f, 0.0f), lightIntensity,
+        AmbientIntensity);
+
+    Lightcubes->Update(L"L3", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
+        true, XMFLOAT3(10.0f,//x
+                        0.0f,//y
+                         8.0f),//z
+        true, 0.4f,
+        LightRange,XMFLOAT3(0.0f, 0.0f, 1.0f), lightIntensity,
+        AmbientIntensity);
+
+    Lightcubes->Update(L"L4", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
+        true, XMFLOAT3(10.0f,//x
+                        0.0f,//y
+                         2.0f),//z
+        true, 0.4f,
+        LightRange, XMFLOAT3(1.0f, 1.0f, 0.0f), lightIntensity,
+        AmbientIntensity);
+
+
+    Lightcubes->Update(L"L5", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
+        true, XMFLOAT3(0.0f,//x
+                        0.0f,//y
+                         2.0f),//z
+        true, 0.4f,
+        LightRange, XMFLOAT3(1.0f, 1.0f, 1.0f), lightIntensity,
+        AmbientIntensity);
+
 
     cubes->UpdateCube(L"C1", XMVectorSet(1.0f, 1.0f, 0.0f, 0.0f), 0,
         false, XMFLOAT3(0.0f,//x
@@ -109,7 +142,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
         true, XMFLOAT3(0.0f,//x
                         0.0f,//y
                          5.0f),//z
-        true, 1.0f, true, false, false, false, true, true);
+        true, 1.0f, false, false, true, false, true, true);
 
     cubes->UpdateCube(L"C3", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
@@ -143,15 +176,18 @@ void StdScene::Renderscene()
     sky->Render();
     cubes->RenderGroup(L"fodase");
 
-    image->Draw(L"IMG_1", true);
+    //image->Draw(L"IMG_1", true);
 
     Lightcubes->Render(L"L1");
     Lightcubes->Render(L"L2");   
+    Lightcubes->Render(L"L3");
+    Lightcubes->Render(L"L4");
+    Lightcubes->Render(L"L5");
 
-    if (show_fps) TXT->Render(L"FPS", true);
-    else TXT->Render(L"FPS", false);
+    //if (show_fps) TXT->Render(L"FPS", true);
+    //else TXT->Render(L"FPS", false);
   
-    Debug_info();
+    //Debug_info();
 
 }
 

@@ -22,6 +22,7 @@ void PL_Cubes::CreateLight(const wchar_t* lightname)
 
         //lightcube
         CubeS::CreateCube(lightname, XMFLOAT3(1.0f,1.0f,1.0f));
+        CreateLight();
 
         return;
     }
@@ -33,7 +34,8 @@ void PL_Cubes::CreateLight(const wchar_t* lightname)
         NLS->next = NULL;
 
         CubeS::CreateCube(lightname, XMFLOAT3(1.0f, 1.0f, 1.0f));
-      
+        CreateLight();
+
         if (LS->next == NULL)
         {
             NLS->prev = LS;
@@ -104,6 +106,26 @@ void PL_Cubes::Update(XMVECTOR rotaxis, float rot,
     UpdateLight(fLS, x, range, XMFLOAT4(color.x * intensity, color.y * intensity, color.z * intensity, 1.0f), ambient);
 }
 
+
+void PL_Cubes::CreateLight()
+{
+    XMVECTOR lightVector = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);
+
+    lightVector = XMVector3TransformCoord(lightVector, Cwrld);
+
+    SLight TempL;
+
+    TempL.pos.x = XMVectorGetX(lightVector);
+    TempL.pos.y = XMVectorGetY(lightVector);
+    TempL.pos.z = XMVectorGetZ(lightVector);
+
+    TempL.range = 0;
+    TempL.att = XMFLOAT3(0.0f, 0.2f, 0.0f);
+    TempL.ambient = XMFLOAT4(0,0,0,0);
+    TempL.diffuse = XMFLOAT4(0, 0, 0, 0);
+
+    lighT.push_back(TempL);
+}
 
 void PL_Cubes::UpdateLight(LightSource* fLS, int x, float range, XMFLOAT4 diffuse , XMFLOAT4 ambient)
 { 

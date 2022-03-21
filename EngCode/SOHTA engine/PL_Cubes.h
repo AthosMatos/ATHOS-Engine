@@ -34,6 +34,7 @@ public:
 				XMFLOAT4 ambient);
 
 private:
+	void CreateLight();
 	void UpdateLight(LightSource* fLS, int x, float range, XMFLOAT4 ambient, XMFLOAT4 diffuse);
 
 public:
