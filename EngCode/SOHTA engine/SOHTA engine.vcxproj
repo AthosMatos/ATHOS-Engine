@@ -165,7 +165,6 @@
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Cubes.cpp" />
     <ClCompile Include="RenderQueue_2D.cpp" />
-    <ClCompile Include="RQD2D.cpp" />
     <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Sky.cpp" />
     <ClCompile Include="SpotLight.cpp" />
@@ -196,7 +195,6 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="RenderQueue_2D.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="RQD2D.h" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="ShaderStrct_Light.h" />
     <ClInclude Include="ShaderStrct_Vertex.h" />

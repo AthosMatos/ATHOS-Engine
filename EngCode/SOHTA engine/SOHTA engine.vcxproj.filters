@@ -166,7 +166,6 @@
     <ClCompile Include="VideoConfig.cpp">
       <Filter>App\VideoConfig</Filter>
     </ClCompile>
-    <ClCompile Include="RQD2D.cpp" />
     <ClCompile Include="RenderQueue_2D.cpp">
       <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
     </ClCompile>
@@ -252,7 +251,6 @@
     <ClInclude Include="ModelStrct.h">
       <Filter>App\Graphics\3D\Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="RQD2D.h" />
     <ClInclude Include="RenderQueue_2D.h">
       <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
     </ClInclude>
