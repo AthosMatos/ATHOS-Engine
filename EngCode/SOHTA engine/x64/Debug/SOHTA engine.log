@@ -1,8 +1,0 @@
-﻿  StdScene.cpp
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\Geometry.h(8,28): warning C4584: 'Geometry': base-class 'D3D' is already a base-class of 'Shaders'
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\D3D.h(6): message : see declaration of 'D3D'
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\Shaders.h(11): message : see declaration of 'Shaders'
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\StdScene.cpp(82,16): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\StdScene.cpp(217,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  SOHTA engine.vcxproj -> C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\x64\Debug\SOHTA engine.exe
