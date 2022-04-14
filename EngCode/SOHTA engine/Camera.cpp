@@ -99,6 +99,11 @@ void Camera::SetFistPerson()
             else return;
         }
     }
+    Tcam->camPosition = XMVectorSet(5.0f, 1.0f, -10.0f, 0.0f);
+    Tcam->camTarget = XMVectorSet(0.0f, 0.0f, 0.0f, 0.0f);//basicamente 1 zoom tipo scope duma sniper ou binoculos
+    Tcam->camUp = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);///inclina a camera tipo strafe do R6 + inclina pra esquerda e - pra direita
+    Tcam->camView = XMMatrixLookAtLH(camPosition, camTarget, camUp);
+  
     Tcam->FirstPerson = true;
     Tcam->NoClip = false;       
 }
@@ -217,7 +222,7 @@ void Camera::Update(const wchar_t* cam)
         UpdatePY(Tcam);
 
         if (Tcam->FirstPerson)
-        {
+        {  
             UpdateFP(Tcam);
         }
         else if (Tcam->NoClip)

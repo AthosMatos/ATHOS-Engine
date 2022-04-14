@@ -682,8 +682,7 @@ void CubeS::RenderGroup(const wchar_t* GroupName)
                         d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
 
                         d3dDevCon->IASetVertexBuffers(0, 1, &CubeVertBuffer_Tex_light, &stride_Tex_light, &offset);
-                        d3dDevCon->PSSetShaderResources(0, 1, &fcube->Texture);
-                        d3dDevCon->PSSetSamplers(0, 1, &fcube->TexSamplerState);
+        
                         //Set the Input Layout
                         d3dDevCon->IASetInputLayout(vertLayout_light);
 

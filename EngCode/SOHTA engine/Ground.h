@@ -7,16 +7,14 @@ public:
 	Ground();
 
 	void CreateGround(const wchar_t* GrdName, const wchar_t* texpath);
-	void UpdateGround(const wchar_t* GrdName,
-		XMVECTOR rotaxis, float rot,
-		bool ActivateTranslation, XMFLOAT3 pos,
-		bool ActivateScale, int size);
+	void UpdateGround(const wchar_t* GrdName, int size);
 	void RenderGround(const wchar_t* GrdName);
 	void Release();
 
 private:
 	void CreateGrdIndexBuffer();
 	void CreateVertexBuffer_Grd();
+	void CreateVertexBuffer_Grd_Light();
 	void CreateTexture(Model* grd, const wchar_t* texPath);
 
 private:

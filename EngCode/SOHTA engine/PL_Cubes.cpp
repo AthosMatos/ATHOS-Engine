@@ -138,7 +138,7 @@ void PL_Cubes::UpdateLight(LightSource* fLS, int x, float range, XMFLOAT4 diffus
     lighT[x].pos.z = XMVectorGetZ(lightVector);
 
     lighT[x].range = range;
-    lighT[x].att = XMFLOAT3(0.0f, 0.2f, 0.0f);
+    lighT[x].att = XMFLOAT3(0.0f, 0.0f, 0.4f);
     lighT[x].ambient = ambient;
     lighT[x].diffuse = diffuse;
 }

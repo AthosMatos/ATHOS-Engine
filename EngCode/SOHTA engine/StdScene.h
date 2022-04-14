@@ -7,9 +7,6 @@
 #include "Image.h"
 #include "Text2D.h"
 
-#define pressflag_cam pressflag_vector[0]
-#define pressflag_fpsshow pressflag_vector[1]
-
 using namespace std;
 
 class StdScene 
@@ -41,14 +38,19 @@ private:
 
 	const wchar_t* cam;
 
-	bool test = false;
-	bool render = true;
-	bool pressflag = false;
+	struct keydata
+	{
+		bool isPressing = false;
+		bool Pressed = false;
+		int toggle = 0;
+	};
 
 private:
 	double fps;
 	bool show_fps;
-	bool pressflag_vector[100];
+	map <string,bool> pressflag;
+
+	map <string, keydata> KeyState;
 
 };
 

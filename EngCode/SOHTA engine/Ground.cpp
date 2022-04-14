@@ -50,7 +50,7 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
     }
 }
 
-void Ground::UpdateGround(const wchar_t* GrdName, XMVECTOR rotaxis, float rot, bool ActivateTranslation, XMFLOAT3 pos, bool ActivateScale, int size)
+void Ground::UpdateGround(const wchar_t* GrdName, int size)
 {
     Model* fgrd;
     fgrd = grd;
@@ -58,19 +58,11 @@ void Ground::UpdateGround(const wchar_t* GrdName, XMVECTOR rotaxis, float rot, b
     while (fgrd->name != GrdName) { fgrd = fgrd->next; }
 
     fgrd->modelWorld = XMMatrixIdentity();
-    fgrd->Translation = XMMatrixTranslation(pos.x / size, pos.y / size, pos.z / size);
-    fgrd->Scale = XMMatrixScaling(10.0f * size, 1.0f, 10.0f * size); ///gridsetup, this may change if the ground texture is another tex
-    fgrd->Rotation = XMMatrixRotationAxis(rotaxis, rot);
+    fgrd->Translation = XMMatrixTranslation(0.0f, 0.0f, 0.0f);
+    fgrd->Scale = XMMatrixScaling(500.0f*size, 2.0f, 500.0f * size); ///gridsetup, this may change if the ground texture is another tex
     fgrd->size = size;
 
-    if (ActivateTranslation == true && ActivateScale == true && rot == 0) fgrd->modelWorld = fgrd->Translation * fgrd->Scale;
-    else if (ActivateTranslation == true && ActivateScale == true && rot != 0) fgrd->modelWorld = fgrd->Translation * fgrd->Rotation * fgrd->Scale;
-    else if (ActivateTranslation == true && ActivateScale == false && rot != 0) fgrd->modelWorld = fgrd->Translation * fgrd->Rotation;
-    else if (ActivateTranslation == true && ActivateScale == false && rot == 0) fgrd->modelWorld = fgrd->Translation;
-    else if (ActivateTranslation == false && ActivateScale == true && rot != 0) fgrd->modelWorld = fgrd->Rotation * fgrd->Scale;
-    else if (ActivateTranslation == false && ActivateScale == true && rot == 0) fgrd->modelWorld = fgrd->Scale;
-    else fgrd->modelWorld = fgrd->Rotation;
-  
+    fgrd->modelWorld = fgrd->Translation * fgrd->Scale;
 }
 
 void Ground::RenderGround(const wchar_t* GrdName)
@@ -84,10 +76,18 @@ void Ground::RenderGround(const wchar_t* GrdName)
     CreateVertexBuffer_Grd();
     
     //Set the Input Layout
-    d3dDevCon->IASetInputLayout(vertLayout_tex);
+    d3dDevCon->IASetInputLayout(vertLayout_light);
 
-    d3dDevCon->VSSetShader(VS_tex, 0, 0);
-    d3dDevCon->PSSetShader(PS_clip_T, 0, 0);
+    for (int x = 0; x < lighT.size(); x++)
+    {
+        constbuffPerFrame.light[x] = lighT[x];
+    }
+
+    d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
+    d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
+
+    d3dDevCon->VSSetShader(VS_light, 0, 0);
+    d3dDevCon->PSSetShader(PS_light, 0, 0);
 
     d3dDevCon->PSSetShaderResources(0, 1, &grd->Texture);
     d3dDevCon->PSSetSamplers(0, 1, &grd->TexSamplerState);
@@ -123,7 +123,7 @@ void Ground::Release()
         else break;
     }
 }
-
+ 
 void Ground::CreateGrdIndexBuffer()
 {
     DWORD indices[] =
@@ -153,23 +153,21 @@ void Ground::CreateGrdIndexBuffer()
 
 void Ground::CreateVertexBuffer_Grd()
 {
-    Textured_Vertex v[] =
+    light_Vertex v[] =
     {
-        // Textured_Vertex(-1.0f, 1.0f, -1.0f, 0.0f, 2.0f * grd->size),
-       //Textured_Vertex(-1.0f, 1.0f,  1.0f, 0.0f, 0.0f),
-       //Textured_Vertex(1.0f, 1.0f,  1.0f, 2.0f * grd->size, 0.0f),
-       //Textured_Vertex(1.0f, 1.0f, -1.0f, 2.0f * grd->size, 2.0f * grd->size),
-        Textured_Vertex(-1.0f, 1.0f, -1.0f, 0.0f, 1.0f),
-        Textured_Vertex(-1.0f, 1.0f,  1.0f, 0.0f, 0.0f),
-        Textured_Vertex(1.0f, 1.0f,  1.0f, 1.0f , 0.0f),
-        Textured_Vertex(1.0f, 1.0f, -1.0f, 1.0f , 1.0f),
+        // Bottom Face
+        light_Vertex(-1.0f, -1.0f, -1.0f, 100.0f, 100.0f, 0.0f, 1.0f, 0.0f),
+        light_Vertex(1.0f, -1.0f, -1.0f,   0.0f, 100.0f, 0.0f, 1.0f, 0.0f),
+        light_Vertex(1.0f, -1.0f,  1.0f,   0.0f,   0.0f, 0.0f, 1.0f, 0.0f),
+        light_Vertex(-1.0f, -1.0f,  1.0f, 100.0f,   0.0f, 0.0f, 1.0f, 0.0f),
+       
     };
 
     D3D11_BUFFER_DESC vertexBufferDesc;
     ZeroMemory(&vertexBufferDesc, sizeof(vertexBufferDesc));
 
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    vertexBufferDesc.ByteWidth = sizeof(Textured_Vertex) * 4;
+    vertexBufferDesc.ByteWidth = sizeof(light_Vertex) * 4;
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
     vertexBufferDesc.CPUAccessFlags = 0;
     vertexBufferDesc.MiscFlags = 0;
@@ -180,7 +178,7 @@ void Ground::CreateVertexBuffer_Grd()
     vertexBufferData.pSysMem = v;
     HRESULT hr = d3dDevice->CreateBuffer(&vertexBufferDesc, &vertexBufferData, &squareVertBuffer);
 
-    UINT stride = sizeof(Textured_Vertex);
+    UINT stride = sizeof(light_Vertex);
     UINT offset = 0;
     d3dDevCon->IASetVertexBuffers(0, 1, &squareVertBuffer, &stride, &offset);
     

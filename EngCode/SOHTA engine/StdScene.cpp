@@ -10,15 +10,18 @@ void StdScene::LoadScene()
     cam = L"CAM1";
 
     show_fps = false;
-    for (int x = 0; x < 100; x++)
-    {
-        pressflag_vector[x] = 0;
-    }
+  
+    pressflag.insert(pair<string, bool>("camSwitch", false));
+    pressflag.insert(pair<string, bool>("fpsshowSwitch", false));
+    pressflag.insert(pair<string, bool>("firstpersonSwitch", false));
+
+    KeyState.insert(pair<string, bool>("F", false));
 
     camera->Create(L"CAM1");
     camera->Create(L"CAM2");
     camera->UseCam(cam);
     // camera->Set_FOV(50.0f);
+    camera->SetFistPerson();
 
     GridGround = new Ground();
     cubes = new CubeS(nullptr);
@@ -35,15 +38,15 @@ void StdScene::LoadScene()
     cubes->CreateCube(L"C5", L"fodase", L"textures//texxture23.png");
     cubes->CreateCube(L"C6", L"fodase", L"textures//texxture3.png");
 
-    //TXT->Create(L"FPS");
-    //TXT->Create(L"AlphaInfo");
-    //TXT->Create(L"Info");
-    //TXT->Create(L"Info2");
-    //TXT->Create(L"cam");
+    TXT->Create(L"FPS");
+    TXT->Create(L"AlphaInfo");
+    TXT->Create(L"Info");
+    TXT->Create(L"cam");
+    TXT->Create(L"FPorNC");
 
-    //TXT->Update(L"FPS", L"FPS:", 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
-    //TXT->Update(L"AlphaInfo", L"SOTHA engine Ultra_Alpha_Beta", 15.0f, 680, 520, D2D1::ColorF::White, 0);
-    //TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA", 15.0f, 700, 10, D2D1::ColorF::White, 0);
+    TXT->Update(L"FPS", L"FPS:", 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
+    TXT->Update(L"AlphaInfo", L"SOTHA engine Ultra_Alpha_Beta", 15.0f, 680, 520, D2D1::ColorF::White, 0);
+    TXT->Update(L"FPorNC", L"FIRST PERSON VIEW", 30.0f, 100, 0, D2D1::ColorF::Red, 0);
 
     Lightcubes->CreateLight(L"L1");
     Lightcubes->CreateLight(L"L2");
@@ -51,7 +54,7 @@ void StdScene::LoadScene()
     Lightcubes->CreateLight(L"L4");
     Lightcubes->CreateLight(L"L5");
 
-    GridGround->CreateGround(L"GRD", L"textures//grid3.png");
+    GridGround->CreateGround(L"GRD", L"textures//rocktexture.png");
     //image->Load(L"IMG_1", L"textures//texxture2.png");
 
     cout << "STD SCENE LOADED \n";
@@ -59,36 +62,38 @@ void StdScene::LoadScene()
 
 void StdScene::UpdateScene(double frametime, double FPS)
 {  
-    float lightIntensity = 0.5f;
-    float LightRange = 6.0f;
-    XMFLOAT4 AmbientIntensity = XMFLOAT4(0.05f, 0.05f, 0.05f, 1.0f);
-    
+    float lightIntensity = 2.6f;
+    float LightRange = 8.0f;
+    XMFLOAT4 AmbientIntensity = XMFLOAT4(0.04f, 0.04f, 0.04f, 1.0f);
+
+    if (!KeyState["F"].isPressing && KeyState["F"].Pressed)
+    {
+        KeyState["F"].Pressed = false;
+        if (KeyState["F"].toggle == 0) { camera->SetFistPerson();   TXT->Update(L"FPorNC", L"FIRST PERSON VIEW", 30.0f, 100, 0, D2D1::ColorF::Red, 0);}
+        else if (KeyState["F"].toggle == 1) { camera->SetNoClip();   TXT->Update(L"FPorNC", L"NOCLIP VIEW", 30.0f, 100, 0, D2D1::ColorF::Red, 0);}
+    }
+
     fps = FPS;
     
-    /*
     if (show_fps)
     {
         TXT->Update(L"FPS", L"FPS:", FPS, 40.0f, 50, 500, D2D1::ColorF::Yellow, 0);
     }
+   
+    if (KeyState["F"].toggle == 0)  TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA\nPRESS 'F' TO GO TO NO CLIP ", 15.0f, 700, 10, D2D1::ColorF::White, 0);
+    else if (KeyState["F"].toggle == 1)  TXT->Update(L"Info", L"PRESS 'Z' TO SEE FPS\nPRESS 'O' TO CHANGE CAMERA\nPRESS 'F' TO GO TO FIRST PERSON ", 15.0f, 700, 10, D2D1::ColorF::White, 0);
 
     TXT->Update(L"cam", cam, 30.0f, 0, 0, D2D1::ColorF::Red, 0);
-
-    image->Update(L"IMG_1", 0.5f,0,0,400,400);
-    */
+    
+    //image->Update(L"IMG_1", 0.5f,0,0,400,400);
 
     camera->Update(cam);
 
     ///rotation math circle wise
-    rot += 0.5f*frametime;
-    if (rot > XM_2PI) rot = 0.0f;
-
+   
     sky->Update();
 
-    GridGround->UpdateGround(L"GRD", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
-        true, XMFLOAT3(0.0f, //x
-                       -4.0f, //y
-                         0.0f),//z
-        true, 2);
+    GridGround->UpdateGround(L"GRD", 1);
 
     Lightcubes->Update(L"L1", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(7.0f,//x
@@ -111,7 +116,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
                         0.0f,//y
                          8.0f),//z
         true, 0.4f,
-        LightRange,XMFLOAT3(0.0f, 0.0f, 1.0f), lightIntensity,
+        LightRange,XMFLOAT3(1.0f, 1.0f, 1.0f), lightIntensity,
         AmbientIntensity);
 
     Lightcubes->Update(L"L4", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
@@ -119,16 +124,16 @@ void StdScene::UpdateScene(double frametime, double FPS)
                         0.0f,//y
                          2.0f),//z
         true, 0.4f,
-        LightRange, XMFLOAT3(1.0f, 1.0f, 0.0f), lightIntensity,
+        LightRange, XMFLOAT3(0.0f, 0.0f, 1.0f), lightIntensity,
         AmbientIntensity);
 
 
     Lightcubes->Update(L"L5", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(0.0f,//x
-                        0.0f,//y
-                         2.0f),//z
+                        6.0f,//y
+                         4.0f),//z
         true, 0.4f,
-        LightRange, XMFLOAT3(1.0f, 1.0f, 1.0f), lightIntensity,
+        10.0f, XMFLOAT3(1.0f, 1.0f, 1.0f), 20.0f,
         AmbientIntensity);
 
 
@@ -136,7 +141,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
         false, XMFLOAT3(0.0f,//x
             0.0f,//y
             10.0f),//z
-        true, 0.7f, false, false, true, false, false, true);
+        true, 0.7f, false, false, true, false, true, true);
 
     cubes->UpdateCube(L"C2", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(0.0f,//x
@@ -148,7 +153,7 @@ void StdScene::UpdateScene(double frametime, double FPS)
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                          0.0f),//z
-        true, 1.0f, false, false, true, false, false, true);
+        true, 1.0f, false, false, true, false, true, true);
 
     cubes->UpdateCube(L"C4", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(10.0f,//x
@@ -160,13 +165,13 @@ void StdScene::UpdateScene(double frametime, double FPS)
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                          10.0f),//z
-        true, 1.0f, false, false, true, false, false, true);
+        true, 1.0f, false, false, true, false, true, true);
 
     cubes->UpdateCube(L"C6", XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f), 0,
         true, XMFLOAT3(5.0f,//x
                         0.0f,//y
                         -5.0f),//z
-        true, 1.0f, true, false, true, true, false, true);
+        true, 1.0f, true, false, true, true, true, true);
 }
 
 void StdScene::Renderscene()
@@ -184,10 +189,10 @@ void StdScene::Renderscene()
     Lightcubes->Render(L"L4");
     Lightcubes->Render(L"L5");
 
-    //if (show_fps) TXT->Render(L"FPS", true);
-    //else TXT->Render(L"FPS", false);
+    if (show_fps) TXT->Render(L"FPS", true);
+    else TXT->Render(L"FPS", false);
   
-    //Debug_info();
+    Debug_info();
 
 }
 
@@ -216,31 +221,49 @@ void StdScene::SceneInput(double frametime)
 
     float speed = (double)15.0f * frametime;
 
-    ///camera change flag
+    if (keyboardState[DIK_F] & 0x80 )
+    {
+        KeyState["F"].isPressing = true;
+        if (!KeyState["F"].Pressed)
+        {
+            KeyState["F"].Pressed = !KeyState["F"].Pressed;
+
+            if(KeyState["F"].toggle==0) KeyState["F"].toggle = 1;
+            else if (KeyState["F"].toggle == 1) KeyState["F"].toggle = 0;
+        }
+    }
+    else if (!(keyboardState[DIK_F] & 0x80))
+    {
+        KeyState["F"].isPressing = false;
+    }
+        
+        
+
     if (keyboardState[DIK_O] & 0x80)
     {
-        if (pressflag_cam == 0)
+        if (!pressflag["camSwitch"])
         {
             if (cam != L"CAM2")cam = L"CAM2";
             else cam = L"CAM1";
 
             camera->UseCam(cam);
         }
-        pressflag_cam = 1;
+        pressflag["camSwitch"] = true;
     }
-    else if (!(keyboardState[DIK_O] & 0x80)) pressflag_cam = 0;
+    else if (!(keyboardState[DIK_O] & 0x80)) pressflag["camSwitch"] = false;
+
 
     ///fps show flag
     if (keyboardState[DIK_Z] & 0x80)
     {
-        if (pressflag_fpsshow == 0)
+        if (!pressflag["fpsshowSwitch"])
         {
             if (!show_fps) show_fps = true;
-            else if (show_fps) show_fps = false;    
+            else if (show_fps) show_fps = false;
         }
-        pressflag_fpsshow = 1;
+        pressflag["fpsshowSwitch"] = true;
     }
-    else if (!(keyboardState[DIK_Z] & 0x80)) pressflag_fpsshow = 0;
+    else if (!(keyboardState[DIK_Z] & 0x80))  pressflag["fpsshowSwitch"] = false;
 
     if (keyboardState[DIK_A] & 0x80)
     {
@@ -303,7 +326,7 @@ void StdScene::Debug_info()
     TXT->Render(L"AlphaInfo", true);
     TXT->Render(L"Info", true);
     TXT->Render(L"cam", true);
-    
+    TXT->Render(L"FPorNC", true);
 }
 
 
