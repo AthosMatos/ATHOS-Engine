@@ -2,10 +2,10 @@
 
 ID3D11BlendState* Geometry::BS_Transparent;
 ID3D11BlendState* Geometry::BS_Opaque;
-cbPerObject  Geometry::cbPerObj;
+cbPerObject Geometry::cbPerObj;
 ID3D11Buffer* Geometry::cbPerObjectBuffer;
 cbPerFrame Geometry::constbuffPerFrame;
-ID3D11Buffer* Geometry::cbPerFrameBuffer;
+ID3D11Buffer* Geometry::cbPerFrameBufferLight;
 ID3D11RasterizerState* Geometry::RS_Transparent2;
 ID3D11RasterizerState* Geometry::RS_Transparent1;
 vector<SLight> Geometry::lighT;
@@ -27,7 +27,7 @@ Geometry::Geometry()
 
 void Geometry::Release()
 {
-    if (cbPerFrameBuffer) cbPerFrameBuffer->Release();
+    if (cbPerFrameBufferLight) cbPerFrameBufferLight->Release();
     if (cbPerObjectBuffer) cbPerObjectBuffer->Release();
     if (RS_Wireframe) RS_Wireframe->Release(); 
     if (BS_Transparent) BS_Transparent->Release();
@@ -58,7 +58,7 @@ void Geometry::CreateBuffers()
 
     HRESULT  hr = d3dDevice->CreateBuffer(&cbbd, NULL, &cbPerObjectBuffer);
     cbbd.ByteWidth = sizeof(cbPerFrame);
-    hr = d3dDevice->CreateBuffer(&cbbd, NULL, &cbPerFrameBuffer);
+    hr = d3dDevice->CreateBuffer(&cbbd, NULL, &cbPerFrameBufferLight);
 
     CBuffers = true;
 }

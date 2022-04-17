@@ -1,6 +1,6 @@
 #include "Cubes.h"
 
-Model* CubeS::cubes;
+ModelStruct* CubeS::cubes;
 bool CubeS::Queueflag;
 bool CubeS::debug_show_dist = false;
 ID3D11Buffer* CubeS::CubeIndexBuffer;

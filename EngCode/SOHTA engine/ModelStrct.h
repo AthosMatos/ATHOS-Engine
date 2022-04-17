@@ -1,7 +1,7 @@
 #pragma once
 #include "Geometry.h"
 
-struct Model
+struct ModelStruct
 {
 	//STD MODEL PROPRETIES
 	const wchar_t* name;
@@ -32,8 +32,8 @@ struct Model
 	bool ActivateScale = true;
 	int rot = 0;
 
-	Model* next;
-	Model* prev;
+	ModelStruct* next;
+	ModelStruct* prev;
 
 	int size; ///ground propretie
 

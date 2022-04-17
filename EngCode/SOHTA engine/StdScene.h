@@ -6,6 +6,7 @@
 #include "Sky.h"
 #include "Image.h"
 #include "Text2D.h"
+#include "Model.hpp"
 
 using namespace std;
 
@@ -52,5 +53,6 @@ private:
 
 	map <string, keydata> KeyState;
 
+	Model* m;
 };
 

@@ -7,15 +7,9 @@
 class D2D : protected VideoConfig
 {
 public:
-	D2D();
-	D2D(nullptr_t);
 	void InitD2D(IDXGISurface1* sharedSurface10);
-
-	void UpdateClassResources(Geometry* obj, D3D* d3d);
 	void UpdateClassResources(IDXGIKeyedMutex* keyedMutex11, IDXGIKeyedMutex* keyedMutex10);
-
 	void SetRenderArea(ID3D11Texture2D* sharedTex11,float left, float right, float top, float bottom);
-	void CreateDWriteFactory();
 	void ClearScreen();
 	void Release();
 
@@ -26,15 +20,11 @@ protected:
 
 protected:
 	static ID2D1RenderTarget* D2DRenderTarget;
-	
 	static ID3D11Buffer* d2dIndexBuffer;
 	static ID3D11Buffer* d2dVertBuffer;
-
 	static ID3D11ShaderResourceView* d2dTexture;
-
 	static IDXGIKeyedMutex* keyedMutex11;
 	static IDXGIKeyedMutex* keyedMutex10;
-
 	static IDWriteFactory* DWriteFactory;
 
 	Geometry* geo;

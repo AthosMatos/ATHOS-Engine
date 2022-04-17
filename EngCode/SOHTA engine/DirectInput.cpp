@@ -26,8 +26,6 @@ bool DirectInput::InitDirectInput(HWND hwnd, HINSTANCE hInstance)
 {
     cout << "DIRECT INPUT STARTED\n";
 
-    chwnd = hwnd;
-
     HRESULT hr = DirectInput8Create(hInstance,
         DIRECTINPUT_VERSION,
         IID_IDirectInput8,
@@ -43,10 +41,10 @@ bool DirectInput::InitDirectInput(HWND hwnd, HINSTANCE hInstance)
         NULL);
 
     hr = DIKeyboard->SetDataFormat(&c_dfDIKeyboard);
-    hr = DIKeyboard->SetCooperativeLevel(chwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+    hr = DIKeyboard->SetCooperativeLevel(hwnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
 
     hr = DIMouse->SetDataFormat(&c_dfDIMouse);
-    hr = DIMouse->SetCooperativeLevel(chwnd,  DISCL_EXCLUSIVE | DISCL_NOWINKEY | DISCL_FOREGROUND);
+    hr = DIMouse->SetCooperativeLevel(hwnd,  DISCL_EXCLUSIVE | DISCL_NOWINKEY | DISCL_FOREGROUND);
 
     cout << "DIRECT INPUT LOADED\n";
 

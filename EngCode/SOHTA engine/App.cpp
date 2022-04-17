@@ -15,7 +15,6 @@ void App::StartApp(HINSTANCE hInstance)
     Gfx->startScene();
     Dinput.InitDirectInput(window->GetHwnd(), hInstance);
     cout << "APP LOADED\n";
-    
 }
 
 void App::RunApp()

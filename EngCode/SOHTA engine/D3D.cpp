@@ -1,26 +1,12 @@
 #include "D3D.h"
 #include <DirectXMath.h>
 
-D3D::D3D(){}
-
-D3D::D3D(nullptr_t)
-{
-    d3dDevice = NULL;
-    d3dDevCon = NULL;
-    SwapChain = NULL;
-    renderTargetView = NULL;
-    depthStencilView = NULL;
-    depthStencilBuffer = NULL;
-}
-
 void D3D::InitD3D(HWND hwnd)
 {
     cout << "DIRECT3D STARTED\n";
-
-    chwnd = hwnd;
     
     CreateDevice();
-    CreateSwapC();
+    CreateSwapC(hwnd);
 
     //Create our BackBuffer
     ID3D11Texture2D* BackBuffer;
@@ -110,7 +96,7 @@ void D3D::CreateDevice()
         &d3dDevCon);
 }
 
-void D3D::CreateSwapC()
+void D3D::CreateSwapC(HWND hwnd)
 {
     //Describe our SwapChain
     DXGI_SWAP_CHAIN_DESC swapChainDesc;
@@ -128,7 +114,7 @@ void D3D::CreateSwapC()
     }
     swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     swapChainDesc.BufferCount = 1;
-    swapChainDesc.OutputWindow = chwnd;
+    swapChainDesc.OutputWindow = hwnd;
     swapChainDesc.Windowed = Windowed;
     swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 

@@ -141,6 +141,8 @@ void PL_Cubes::UpdateLight(LightSource* fLS, int x, float range, XMFLOAT4 diffus
     lighT[x].att = XMFLOAT3(0.0f, 0.0f, 0.4f);
     lighT[x].ambient = ambient;
     lighT[x].diffuse = diffuse;
+    lighT[x].specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+    lighT[x].specularPower = 10.0f;
 }
 
 void PL_Cubes::Render(const wchar_t* lightname)

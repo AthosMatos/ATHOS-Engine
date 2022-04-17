@@ -52,18 +52,6 @@
     <Filter Include="App\Graphics\Camera">
       <UniqueIdentifier>{68eb8fd8-6991-438c-8ef9-d61a2f8f54f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="App\VideoConfig">
-      <UniqueIdentifier>{ed4712ef-25ec-4f84-8fe4-94b943c42ee6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="App\Graphics\3D\Elements">
-      <UniqueIdentifier>{25838227-3ac7-45c8-9087-89509b50cbd2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="App\Graphics\3D\Elements\Ground">
-      <UniqueIdentifier>{efad547e-de00-476a-9368-2def3318f523}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="App\Graphics\3D\Elements\Sky">
-      <UniqueIdentifier>{63aa0523-8306-4ac0-976b-31158a7f34c7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="App\Graphics\2D\RenderQueue_2D">
       <UniqueIdentifier>{07393329-4985-4658-a14c-88769fcff11f}</UniqueIdentifier>
     </Filter>
@@ -84,6 +72,27 @@
     </Filter>
     <Filter Include="App\Graphics\3D\Light\SpotLight">
       <UniqueIdentifier>{a5446d9f-87c5-4da6-8a51-e1d58a3cff13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\Scenes\StdScene">
+      <UniqueIdentifier>{100b3ba8-9168-4f9f-ae9f-24abceea833b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Elements">
+      <UniqueIdentifier>{25838227-3ac7-45c8-9087-89509b50cbd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Elements\Ground">
+      <UniqueIdentifier>{efad547e-de00-476a-9368-2def3318f523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Elements\Sky">
+      <UniqueIdentifier>{63aa0523-8306-4ac0-976b-31158a7f34c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\VideoConfig #makethis a txt">
+      <UniqueIdentifier>{ed4712ef-25ec-4f84-8fe4-94b943c42ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Model">
+      <UniqueIdentifier>{c59fcff1-5ac4-442e-bd0e-e68de4eba919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App\Graphics\3D\Geometry\Sphere">
+      <UniqueIdentifier>{40b41bdc-6310-4e92-8521-c6a4b23f7614}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -113,16 +122,13 @@
       <Filter>App\Input</Filter>
     </ClCompile>
     <ClCompile Include="Ground.cpp">
-      <Filter>App\Graphics\3D\Elements\Ground</Filter>
-    </ClCompile>
-    <ClCompile Include="StdScene.cpp">
-      <Filter>App\Graphics\Scenes</Filter>
+      <Filter>App\Graphics\3D\Geometry\Elements\Ground</Filter>
     </ClCompile>
     <ClCompile Include="Geometry.cpp">
       <Filter>App\Graphics\3D\Geometry</Filter>
     </ClCompile>
     <ClCompile Include="Sky.cpp">
-      <Filter>App\Graphics\3D\Elements\Sky</Filter>
+      <Filter>App\Graphics\3D\Geometry\Elements\Sky</Filter>
     </ClCompile>
     <ClCompile Include="Shaders.cpp">
       <Filter>App\Graphics\3D\Shaders</Filter>
@@ -158,13 +164,13 @@
       <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
     </ClCompile>
     <ClCompile Include="StaticDeclarations_Ground.cpp">
-      <Filter>App\Graphics\3D\Elements\Ground</Filter>
+      <Filter>App\Graphics\3D\Geometry\Elements\Ground</Filter>
     </ClCompile>
     <ClCompile Include="StaticDeclarations_Image.cpp">
       <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Image</Filter>
     </ClCompile>
     <ClCompile Include="VideoConfig.cpp">
-      <Filter>App\VideoConfig</Filter>
+      <Filter>App\VideoConfig #makethis a txt</Filter>
     </ClCompile>
     <ClCompile Include="RenderQueue_2D.cpp">
       <Filter>App\Graphics\2D\RenderQueue_2D</Filter>
@@ -174,6 +180,18 @@
     </ClCompile>
     <ClCompile Include="SpotLight.cpp">
       <Filter>App\Graphics\3D\Light\SpotLight</Filter>
+    </ClCompile>
+    <ClCompile Include="StdScene.cpp">
+      <Filter>App\Graphics\Scenes\StdScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>App\Graphics\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>App\Graphics\3D\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>App\Graphics\3D\Geometry\Sphere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,16 +218,13 @@
       <Filter>App\Input</Filter>
     </ClInclude>
     <ClInclude Include="Ground.h">
-      <Filter>App\Graphics\3D\Elements\Ground</Filter>
-    </ClInclude>
-    <ClInclude Include="StdScene.h">
-      <Filter>App\Graphics\Scenes</Filter>
+      <Filter>App\Graphics\3D\Geometry\Elements\Ground</Filter>
     </ClInclude>
     <ClInclude Include="Geometry.h">
       <Filter>App\Graphics\3D\Geometry</Filter>
     </ClInclude>
     <ClInclude Include="Sky.h">
-      <Filter>App\Graphics\3D\Elements\Sky</Filter>
+      <Filter>App\Graphics\3D\Geometry\Elements\Sky</Filter>
     </ClInclude>
     <ClInclude Include="Cubes.h">
       <Filter>App\Graphics\3D\Geometry\Cubes</Filter>
@@ -234,7 +249,7 @@
     </ClInclude>
     <ClInclude Include="resource.h" />
     <ClInclude Include="VideoConfig.h">
-      <Filter>App\VideoConfig</Filter>
+      <Filter>App\VideoConfig #makethis a txt</Filter>
     </ClInclude>
     <ClInclude Include="Text2D.h">
       <Filter>App\Graphics\2D\RenderQueue_2D\2DTools\Text</Filter>
@@ -260,6 +275,18 @@
     <ClInclude Include="Spotlight.h">
       <Filter>App\Graphics\3D\Light\SpotLight</Filter>
     </ClInclude>
+    <ClInclude Include="StdScene.h">
+      <Filter>App\Graphics\Scenes\StdScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.hpp">
+      <Filter>App\Graphics\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.hpp">
+      <Filter>App\Graphics\3D\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.hpp">
+      <Filter>App\Graphics\3D\Geometry\Sphere</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SOHTA engine.rc" />
@@ -269,9 +296,6 @@
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
     <FxCompile Include="shaders\EffectsTexture.fx">
-      <Filter>App\Graphics\3D\Shaders\FX</Filter>
-    </FxCompile>
-    <FxCompile Include="skyshader.fx">
       <Filter>App\Graphics\3D\Shaders\FX</Filter>
     </FxCompile>
     <FxCompile Include="shaders\EffectsLight.hlsl">

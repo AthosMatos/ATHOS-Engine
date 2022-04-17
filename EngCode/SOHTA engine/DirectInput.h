@@ -29,8 +29,6 @@ public:
 	static float camPitch;
 	static float camPitch2;
 
-	HWND chwnd;
-
 private:
 	friend class Graphics;
 	friend class App;

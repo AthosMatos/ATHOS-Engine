@@ -27,16 +27,17 @@ public:
 
 	void RenderCube(const wchar_t* CubeName);
 	void RenderGroup(const wchar_t* GroupName);
+	void RenderGroup(const wchar_t* GroupName,bool Sphere);
 
 	void Release();
 
 private:
-	Model* STDCubeCreate();
+	ModelStruct* STDCubeCreate();
 	void CreateIndexBuffer();
 	void CreateVertexBuffer_Colored(int preset, float red, float green, float blue);
 	void CreateVertexBuffer_Textured();
 	void CreateVertexBuffer_light();
-	void CreateTexture(Model* cubes, const wchar_t* texPath);
+	void CreateTexture(ModelStruct* cubes, const wchar_t* texPath);
 
 	void RenderTransparent();
 	void RenderWireframe();
@@ -49,7 +50,7 @@ private:
 	static bool debug_show_dist;
 
 private:
-	static Model* cubes;
+	static ModelStruct* cubes;
 	static ID3D11Buffer* CubeIndexBuffer;
 	static ID3D11Buffer* CubeVertBuffer_Tex_light;
 	static ID3D11Buffer* CubeVertBuffer_Tex;

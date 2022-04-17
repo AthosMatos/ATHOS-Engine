@@ -1,5 +1,6 @@
 #include "StdScene.h"
 
+
 #define LOG(var) cout<<var<<endl;
 
 void StdScene::LoadScene()
@@ -10,7 +11,11 @@ void StdScene::LoadScene()
     cam = L"CAM1";
 
     show_fps = false;
-  
+
+    m = new Model();
+
+    m->LoadObjModel(L"legoobj.obj", true, true);
+    m->loadTex(L"Face_04.png");
     pressflag.insert(pair<string, bool>("camSwitch", false));
     pressflag.insert(pair<string, bool>("fpsshowSwitch", false));
     pressflag.insert(pair<string, bool>("firstpersonSwitch", false));
@@ -34,7 +39,7 @@ void StdScene::LoadScene()
     cubes->CreateCube(L"C1", L"fodase", 1);
     cubes->CreateCube(L"C2", L"fodase", L"textures//texxture2.png");
     cubes->CreateCube(L"C3", L"fodase", L"textures//texxture.png");
-    cubes->CreateCube(L"C4", L"fodase", L"textures//rocktexture.png");
+    cubes->CreateCube(L"C4", L"fodase", L"textures//aluminiumPlate.png");
     cubes->CreateCube(L"C5", L"fodase", L"textures//texxture23.png");
     cubes->CreateCube(L"C6", L"fodase", L"textures//texxture3.png");
 
@@ -62,9 +67,13 @@ void StdScene::LoadScene()
 
 void StdScene::UpdateScene(double frametime, double FPS)
 {  
+
+
+    m->Update();
+
     float lightIntensity = 2.6f;
     float LightRange = 8.0f;
-    XMFLOAT4 AmbientIntensity = XMFLOAT4(0.04f, 0.04f, 0.04f, 1.0f);
+    XMFLOAT4 AmbientIntensity = XMFLOAT4(0.01f, 0.01f, 0.01f, 1.0f);
 
     if (!KeyState["F"].isPressing && KeyState["F"].Pressed)
     {
@@ -180,6 +189,8 @@ void StdScene::Renderscene()
 
     sky->Render();
     cubes->RenderGroup(L"fodase");
+
+    m->Render();
 
     //image->Draw(L"IMG_1", true);
 

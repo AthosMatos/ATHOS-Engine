@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -160,13 +161,16 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="ImageStrct.h" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="PL_Cubes.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Geometry.cpp" />
     <ClCompile Include="Cubes.cpp" />
     <ClCompile Include="RenderQueue_2D.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Sky.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="SpotLight.cpp" />
     <ClCompile Include="StaticDeclarations_Ground.cpp" />
     <ClCompile Include="StaticDeclarations_Cubes.cpp" />
@@ -186,6 +190,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraStrct.h" />
+    <ClInclude Include="Model.hpp" />
     <ClInclude Include="ModelStrct.h" />
     <ClInclude Include="D2D.h" />
     <ClInclude Include="D3D.h" />
@@ -195,6 +200,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="RenderQueue_2D.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="ShaderStrct_Light.h" />
     <ClInclude Include="ShaderStrct_Vertex.h" />
@@ -204,6 +210,7 @@
     <ClInclude Include="Geometry.h" />
     <ClInclude Include="ConstBuffers.h" />
     <ClInclude Include="Cubes.h" />
+    <ClInclude Include="Sphere.hpp" />
     <ClInclude Include="Spotlight.h" />
     <ClInclude Include="StdScene.h" />
     <ClInclude Include="Text2D.h" />
@@ -252,12 +259,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </FxCompile>
-    <FxCompile Include="skyshader.fx">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -265,11 +266,14 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\directxtk_desktop_win10.2020.11.12.1\build\native\directxtk_desktop_win10.targets" Condition="Exists('..\packages\directxtk_desktop_win10.2020.11.12.1\build\native\directxtk_desktop_win10.targets')" />
+    <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\directxtk_desktop_win10.2020.11.12.1\build\native\directxtk_desktop_win10.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\directxtk_desktop_win10.2020.11.12.1\build\native\directxtk_desktop_win10.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.210806.1\build\native\Microsoft.Windows.CppWinRT.targets'))" />
   </Target>
 </Project>

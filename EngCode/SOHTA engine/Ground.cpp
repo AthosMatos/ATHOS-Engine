@@ -11,7 +11,7 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
 {
     if (grd == NULL)
     {
-        grd = (Model*)malloc(sizeof(Model));
+        grd = (ModelStruct*)malloc(sizeof(ModelStruct));
         grd->Texture = NULL;
         grd->TexSamplerState = NULL;
 
@@ -25,8 +25,8 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
     }
     else
     {
-        Model* Ngrd;
-        Ngrd = (Model*)malloc(sizeof(Model));
+        ModelStruct* Ngrd;
+        Ngrd = (ModelStruct*)malloc(sizeof(ModelStruct));
         Ngrd->next = NULL;
         Ngrd->name = GrdName;
         CreateTexture(Ngrd, texpath);
@@ -52,7 +52,7 @@ void Ground::CreateGround(const wchar_t* GrdName, const wchar_t* texpath)
 
 void Ground::UpdateGround(const wchar_t* GrdName, int size)
 {
-    Model* fgrd;
+    ModelStruct* fgrd;
     fgrd = grd;
 
     while (fgrd->name != GrdName) { fgrd = fgrd->next; }
@@ -67,7 +67,7 @@ void Ground::UpdateGround(const wchar_t* GrdName, int size)
 
 void Ground::RenderGround(const wchar_t* GrdName)
 {
-    Model* fgrd;
+    ModelStruct* fgrd;
     fgrd = grd;
 
     while (fgrd->name != GrdName) { fgrd = fgrd->next; }
@@ -82,9 +82,12 @@ void Ground::RenderGround(const wchar_t* GrdName)
     {
         constbuffPerFrame.light[x] = lighT[x];
     }
+    //constbuffPerFrame.cameraPosition.x = XMVectorGetX(camPosition);
+    //constbuffPerFrame.cameraPosition.y = XMVectorGetY(camPosition);
+    //constbuffPerFrame.cameraPosition.z = XMVectorGetZ(camPosition);
 
-    d3dDevCon->UpdateSubresource(cbPerFrameBuffer, 0, NULL, &constbuffPerFrame, 0, 0);
-    d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBuffer);
+    d3dDevCon->UpdateSubresource(cbPerFrameBufferLight, 0, NULL, &constbuffPerFrame, 0, 0);
+    d3dDevCon->PSSetConstantBuffers(0, 1, &cbPerFrameBufferLight);
 
     d3dDevCon->VSSetShader(VS_light, 0, 0);
     d3dDevCon->PSSetShader(PS_light, 0, 0);
@@ -109,8 +112,8 @@ void Ground::Release()
     if (squareVertBuffer)squareVertBuffer->Release();
     if (squareIndexBuffer)squareIndexBuffer->Release();
 
-    Model* Temp = grd;
-    Model* TTemp;
+    ModelStruct* Temp = grd;
+    ModelStruct* TTemp;
 
     while (true)
     {
@@ -185,7 +188,7 @@ void Ground::CreateVertexBuffer_Grd()
     squareVertBuffer->Release();
 }
 
-void Ground::CreateTexture(Model* grd, const wchar_t* texPath)
+void Ground::CreateTexture(ModelStruct* grd, const wchar_t* texPath)
 {
     CreateWICTextureFromFile(d3dDevice, texPath, nullptr, &grd->Texture, 0);
 

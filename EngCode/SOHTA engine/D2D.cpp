@@ -1,23 +1,7 @@
 #include "D2D.h"
 
-D2D::D2D(){}
-
-D2D::D2D(nullptr_t)
-{
-    D2DRenderTarget = NULL;
-    d2dIndexBuffer = NULL;
-    d2dVertBuffer = NULL;
-    d2dTexture = NULL;
-    keyedMutex11 = NULL;
-    keyedMutex10 = NULL;
-    geo = NULL;
-    d3d = NULL;
-    DWriteFactory = NULL;
-}
-
 void D2D::InitD2D(IDXGISurface1* sharedSurface10)
 {
-
     ID2D1Factory* D2DFactory;
     HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, __uuidof(ID2D1Factory), (void**)&D2DFactory);
 
@@ -30,17 +14,11 @@ void D2D::InitD2D(IDXGISurface1* sharedSurface10)
 
     hr = D2DFactory->CreateDxgiSurfaceRenderTarget(sharedSurface10, &renderTargetProperties, &D2DRenderTarget);
 
-    sharedSurface10->Release();
     D2DFactory->Release();
 
-    CreateDWriteFactory();
+    hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory),
+        reinterpret_cast<IUnknown**>(&DWriteFactory));
 
-}
-
-void D2D::UpdateClassResources(Geometry* geo, D3D* d3d)
-{
-    this->geo = geo;
-    this->d3d = d3d;
 }
 
 void D2D::UpdateClassResources(IDXGIKeyedMutex* keyedMutex11, IDXGIKeyedMutex* keyedMutex10)
@@ -118,12 +96,6 @@ void D2D::SetRenderArea(ID3D11Texture2D* sharedTex11, float x0, float x, float y
     //Create A shader resource view from the texture D2D will render to,
     //So we can use it to texture a square which overlays our scene
     D3D::d3dDevice->CreateShaderResourceView(sharedTex11, NULL, &d2dTexture);
-}
-
-void D2D::CreateDWriteFactory()
-{
-    HRESULT hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory),
-        reinterpret_cast<IUnknown**>(&DWriteFactory));
 }
 
 void D2D::ClearScreen()

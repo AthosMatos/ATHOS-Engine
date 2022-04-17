@@ -62,7 +62,6 @@ void Image::Release()
 	if (wicconverter)wicconverter->Release();
 	if (wicframe)wicframe->Release();
 	if (wicdecoder)wicdecoder->Release();
-	if (wicfactory)wicfactory->Release();
 }
 
 void Image::LoadImg(const wchar_t* filename)

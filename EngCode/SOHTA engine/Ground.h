@@ -15,10 +15,10 @@ private:
 	void CreateGrdIndexBuffer();
 	void CreateVertexBuffer_Grd();
 	void CreateVertexBuffer_Grd_Light();
-	void CreateTexture(Model* grd, const wchar_t* texPath);
+	void CreateTexture(ModelStruct* grd, const wchar_t* texPath);
 
 private:
-	static Model* grd;
+	static ModelStruct* grd;
 
 	static ID3D11Buffer* squareIndexBuffer;
 	static ID3D11Buffer* squareVertBuffer;

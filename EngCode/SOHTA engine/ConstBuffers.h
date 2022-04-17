@@ -7,9 +7,17 @@ struct cbPerObject
 {
 	XMMATRIX  WVP;
 	XMMATRIX  World;
+
+	XMFLOAT3 cameraPosition;
+
+	XMFLOAT4 difColor;
+	bool hasTexture;
 };
 
 struct cbPerFrame
 {
 	SLight light[100];
 };
+
+
+

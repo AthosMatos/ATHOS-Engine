@@ -3,37 +3,32 @@
 #include "D3D.h"
 #include "D2D.h"
 #include "Text2D.h"
-#include <cstdlib>
-#include <ctime>
 #include "StdScene.h"
 #include "Camera.h"
 #include "VideoConfig.h"
 #include "RenderQueue_2D.h"
+#include "Scene.hpp"
 
 class Graphics : VideoConfig
 {
+	
 public:
 	void init(HWND hwnd);
 	void startScene();
-	void loadScene(const wchar_t* name);
 	void Update(double FrameTime, double FPS);
 	void Render();
 	void Release();
 	
 private:
-	void input();
-	bool InitSharedScreen(IDXGIAdapter1* Adapter);
+	void InitSharedScreen(IDXGIAdapter1* Adapter);
 
 private:
 	D3D* d3d;
 	D2D* d2d;
 
-	Geometry* geomtry;
-
-	StdScene* fistscene;
-	DirectInput DI;
-
 	RenderQueue_2D* RQ2D;
+private:
+	StdScene* fistscene;
 
 private:
 	ID3D10Device1* d3d101Device;

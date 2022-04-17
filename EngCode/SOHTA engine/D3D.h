@@ -6,8 +6,6 @@
 class D3D : VideoConfig
 {
 public:
-	D3D();
-	D3D(nullptr_t);
 	void InitD3D(HWND hwnd);
 	void SetViewport(float OffsetLeftX, float OffsetTopY, float OffsetBottonX, float OffsetRightY);
 	void Release();
@@ -16,7 +14,7 @@ private:
 	void CreateViewport(float LeftXspace, float TopYspace, float RightXspace, float BottomYspace);
 	UINT CheckMSAAQuality();
 	void CreateDevice();
-	void CreateSwapC();
+	void CreateSwapC(HWND hwnd);
 	void CreateDSbuffer();
 
 protected:
@@ -34,8 +32,6 @@ private:
 	friend class Graphics;
 	friend class App;
 	friend class StdScene;
-
-	HWND chwnd;
 
 };
 

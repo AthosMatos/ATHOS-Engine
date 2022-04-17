@@ -5,43 +5,35 @@ void Graphics::init(HWND hwnd)
 {
     cout << "GRAPHICS STARTED\n";
 
-    d3d = new D3D(nullptr);
-    d2d = new D2D(nullptr);
-
+    d3d = new D3D;
+    d2d = new D2D;
     RQ2D = new RenderQueue_2D;
-
-    fistscene = new StdScene();
+    fistscene = new StdScene;
 
     d3d->InitD3D(hwnd);
-    d2d->UpdateClassResources(geomtry, d3d);
     InitSharedScreen(d3d->Adapter);
     d2d->InitD2D(sharedSurface10);
     d2d->UpdateClassResources(keyedMutex11, keyedMutex10);
+
     d3d->Adapter->Release();   
-  
+    sharedSurface10->Release();
+    keyedMutex11->Release();
+    keyedMutex10->Release();
+
     cout << "GRAPHICS LOADED\n";
 }
 
 void Graphics::startScene()
 { 
     fistscene->LoadScene(); 
+    d2d->SetRenderArea(sharedTex11, 0, 0, 0, 0);
 
-    d2d->SetRenderArea(sharedTex11,
-                        0,
-                        0,
-                        0,
-                        0);
-
-}
-
-void Graphics::loadScene(const wchar_t* name)
-{
+    sharedTex11->Release();
 }
 
 
 void Graphics::Update(double FrameTime, double FPS)
 {
-    input();
     fistscene->SceneInput(FrameTime); 
     fistscene->UpdateScene(FrameTime,FPS);
 }
@@ -62,26 +54,13 @@ void Graphics::Render()
 
 void Graphics::Release()
 {
-    if (d3d101Device)d3d101Device->Release();
-    if (keyedMutex11)keyedMutex11->Release();
-    if (keyedMutex10)keyedMutex10->Release();
-    if (sharedTex11)sharedTex11->Release();
-    if (sharedSurface10)sharedSurface10->Release();
     if (d2d)d2d->Release();
-    if (geomtry)geomtry->Release();   
     if (d3d)d3d->Release();    
     if (fistscene)fistscene->Release();
     if (RQ2D)RQ2D->Release();
 }
 
-void Graphics::input()
-{
- 
-
-}
-/////////////////////////// private///////////////////////////////////////
-
-bool Graphics::InitSharedScreen(IDXGIAdapter1* Adapter)
+void Graphics::InitSharedScreen(IDXGIAdapter1* Adapter)
 {
     //Create our Direc3D 10.1 Device///////////////////////////////////////////////////////////////////////////////////////
     HRESULT hr = D3D10CreateDevice1(Adapter, D3D10_DRIVER_TYPE_HARDWARE, NULL, D3D10_CREATE_DEVICE_BGRA_SUPPORT,
@@ -124,7 +103,8 @@ bool Graphics::InitSharedScreen(IDXGIAdapter1* Adapter)
     hr = sharedSurface10->QueryInterface(__uuidof(IDXGIKeyedMutex), (void**)&keyedMutex10);
 
     d3d101Device->IASetPrimitiveTopology(D3D10_PRIMITIVE_TOPOLOGY_POINTLIST);
-    return true;
+
+    d3d101Device->Release();
 }
 
 

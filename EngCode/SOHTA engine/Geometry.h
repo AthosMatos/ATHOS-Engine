@@ -48,7 +48,7 @@ protected:
 protected:
 	static cbPerObject cbPerObj;
 	static ID3D11Buffer* cbPerObjectBuffer;
-	static ID3D11Buffer* cbPerFrameBuffer;
+	static ID3D11Buffer* cbPerFrameBufferLight;
 
 	static vector<SLight>lighT;
 
