@@ -1,3 +1,0 @@
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\x64\Debug\SOHTA engine.vcxproj.MdMergeInputs.cache
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\x64\Debug\SOHTA engine.vcxproj.cppwinrt_plat.cache
-C:\Users\athos\Desktop\ATHOS Engine\ATHOS-Engine\EngCode\SOHTA engine\x64\Debug\SOHTA engine.vcxproj.cppwinrt_comp.cache
